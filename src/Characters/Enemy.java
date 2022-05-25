@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Enemy extends Characters{
     SecureRandom random = new SecureRandom();
 
-
     public Enemy(String name){
         super(name);
         setName("Enemy");

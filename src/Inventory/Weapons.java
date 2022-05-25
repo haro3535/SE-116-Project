@@ -1,5 +1,10 @@
 package Inventory;
 
+import Characters.Characters;
+import Characters.Enemy;
+
+import java.util.ArrayList;
+
 public abstract class Weapons implements Items{
 
     private String name;
@@ -23,7 +28,7 @@ public abstract class Weapons implements Items{
         System.out.println("Damage Multiplier:  x" + getDamage());
         System.out.println("----------------------------");
     }
-    public abstract void Attack();
+    public abstract void Attack(Characters characters, String who, ArrayList<Enemy> enemies, String which);
     public abstract void SpecialAction();
 
     public String getValue() {

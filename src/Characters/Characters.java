@@ -11,6 +11,7 @@ public abstract class Characters {
     private double vitality;
     private double intelligence;
     private ArrayList<Items> items;
+    private double healthPoint;
 
     public Characters() {
         name = "Unknown";
@@ -18,10 +19,15 @@ public abstract class Characters {
         vitality = 0.0;
         intelligence = 0.0;
         items = new ArrayList<>();
+        healthPoint = 0.0;
     }
 
     public Characters(String name) {
-        this.name = name;
+        this.name = name;  // For enemy
+    }
+
+    public void HealthPointCalculator(double takenDamage){
+        setHealthPoint(getHealthPoint()-takenDamage);
     }
 
     public String getName() {
@@ -62,5 +68,13 @@ public abstract class Characters {
 
     public void setItems(ArrayList<Items> items) {
         this.items = items;
+    }
+
+    public double getHealthPoint() {
+        return healthPoint;
+    }
+
+    public void setHealthPoint(double healthPoint) {
+        this.healthPoint = healthPoint;
     }
 }

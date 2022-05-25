@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Last_Version.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Characters/Fighter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Characters/Healer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Characters/Tank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Clothes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +38,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/harun/IdeaProjects/ProjeDeneme2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

@@ -11,5 +11,6 @@ public class Tank extends Characters{
         setStrength(random.nextDouble(1,6));
         setVitality(random.nextDouble(6,11));
         setItems(new ArrayList<>());
+        setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
     }
 }
