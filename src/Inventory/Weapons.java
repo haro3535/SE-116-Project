@@ -12,6 +12,9 @@ public abstract class Weapons implements Items{
     private String value;
     private double damage;
     private boolean isWield;
+    private boolean isSword;
+    private boolean isShield;
+    private boolean isWand;
 
     public Weapons(boolean isWield) {
         name = "Unknown";
@@ -19,6 +22,9 @@ public abstract class Weapons implements Items{
         value = "Unknown";
         damage = 0.0;
         this.isWield = isWield;
+        isSword = false;
+        isWand = false;
+        isShield = false;
     }
 
 
@@ -71,5 +77,29 @@ public abstract class Weapons implements Items{
 
     public void setWield(boolean wield) {
         isWield = wield;
+    }
+
+    public boolean isSword() {
+        return isSword;
+    }
+
+    public void setSword(boolean sword) {
+        isSword = sword;
+    }
+
+    public boolean isShield() {
+        return isShield;
+    }
+
+    public void setShield(boolean shield) {
+        isShield = shield;
+    }
+
+    public boolean isWand() {
+        return isWand;
+    }
+
+    public void setWand(boolean wand) {
+        isWand = wand;
     }
 }

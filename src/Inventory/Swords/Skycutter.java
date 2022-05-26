@@ -2,12 +2,13 @@ package Inventory.Swords;
 
 import Characters.Characters;
 import Characters.Enemy;
+import Inventory.Sword;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Skycutter extends Weapons {
+public class Skycutter extends Sword {
 
     SecureRandom random = new SecureRandom();
 
@@ -16,7 +17,8 @@ public class Skycutter extends Weapons {
         setName("Skycutter");
         setValue("Rare");
         setWeight(5.0);
-        setDamage(random.nextDouble(1,5)/10.0); // Each weapon has own damage value.
+        setDamage(random.nextDouble(5,10)/10.0); // Each weapon has own damage value.
+        setSword(true);
     }
 
     @Override

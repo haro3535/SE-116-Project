@@ -2,14 +2,13 @@ package Inventory.Wands;
 
 import Characters.Characters;
 import Characters.Enemy;
+import Inventory.Wand;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Prophecy extends Weapons {
-
-    private double healingRate;
+public class Prophecy extends Wand {
 
     SecureRandom random = new SecureRandom();
 
@@ -20,6 +19,7 @@ public class Prophecy extends Weapons {
         setValue("Legendary");
         setDamage(random.nextDouble(4,16)/10.0);
         setHealingRate(random.nextDouble(14,17)/10.0);
+        setWand(true);
     }
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
@@ -33,13 +33,5 @@ public class Prophecy extends Weapons {
         }else {
         whoWillGetHealing.setHealthPoint((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
         }
-    }
-
-    public double getHealingRate() {
-        return healingRate;
-    }
-
-    public void setHealingRate(double healingRate) {
-        this.healingRate = healingRate;
     }
 }

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Items attack finished and characters health point and health point calculator finished!!">
-      <change afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created.">
+      <change afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Sword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Healer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Healer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Clothes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Clothes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653503948963</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created.">
+      <created>1653579787907</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653579787908</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Items attack finished and characters health point and health point calculator finished!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Items attack finished and characters health point and health point calculator finished!!" />
+    <MESSAGE value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
   </component>
 </project>

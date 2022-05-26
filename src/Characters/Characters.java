@@ -2,6 +2,7 @@ package Characters;
 
 import Inventory.Clothes;
 import Inventory.Items;
+import Inventory.Shield;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
@@ -37,17 +38,53 @@ public abstract class Characters {
     SecureRandom random = new SecureRandom();
     public void HealthPointCalculator(double takenDamage){
 
+        Clothes armor = null;
+        Shield shield = null;
+
         boolean isWoreAnything = false;
+        boolean isWieldShield = false;
         for (Items itm:
              getItems()) {
             if (((Clothes) itm).isWore()) {
+                armor = (Clothes) itm;
                 isWoreAnything = true;
                 setHealthPoint(
                         getHealthPoint() - (takenDamage - (takenDamage*(((Clothes) itm).getBlockPercent()/100.0))) // Armor decreases taken damage
                         );
             }
         }
-        if (!isWoreAnything) {
+        for (Items itm:
+             getItems()) {
+            if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
+                shield = (Shield) itm;
+                isWieldShield = true;
+            }
+        }
+
+        if (isWieldShield && !isWoreAnything) {
+            double damage = takenDamage*shield.getBlockChance();
+            if (damage > 0.0) {
+                setHealthPoint(getHealthPoint()-takenDamage);
+            }else System.out.println("Blocked!");
+        }
+
+        if (isWoreAnything && !isWieldShield) {
+            setHealthPoint(
+                    getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
+                    );
+        }
+
+        if (isWieldShield && isWoreAnything) {
+            double damage = takenDamage*shield.getBlockChance();
+            if (damage > 0.0) {
+                setHealthPoint(
+                        getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
+                );
+            }else System.out.println("Blocked!");
+
+        }
+
+        if (!isWieldShield && !isWoreAnything){
             setHealthPoint(getHealthPoint()-takenDamage);
         }
 
