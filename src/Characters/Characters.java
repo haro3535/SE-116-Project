@@ -1,7 +1,10 @@
 package Characters;
 
+import Inventory.Clothes;
 import Inventory.Items;
+import Inventory.Weapons;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public abstract class Characters {
@@ -12,6 +15,9 @@ public abstract class Characters {
     private double intelligence;
     private ArrayList<Items> items;
     private double healthPoint;
+    private boolean unTouchable;
+    private int howMuchTurnWillStayOut;
+    private double maxHealthPoint;
 
     public Characters() {
         name = "Unknown";
@@ -20,14 +26,35 @@ public abstract class Characters {
         intelligence = 0.0;
         items = new ArrayList<>();
         healthPoint = 0.0;
+        unTouchable = false;
+        howMuchTurnWillStayOut = 0;
     }
 
     public Characters(String name) {
         this.name = name;  // For enemy
     }
 
+    SecureRandom random = new SecureRandom();
     public void HealthPointCalculator(double takenDamage){
-        setHealthPoint(getHealthPoint()-takenDamage);
+
+        boolean isWoreAnything = false;
+        for (Items itm:
+             getItems()) {
+            if (((Clothes) itm).isWore()) {
+                isWoreAnything = true;
+                setHealthPoint(
+                        getHealthPoint() - (takenDamage - (takenDamage*(((Clothes) itm).getBlockPercent()/100.0))) // Armor decreases taken damage
+                        );
+            }
+        }
+        if (!isWoreAnything) {
+            setHealthPoint(getHealthPoint()-takenDamage);
+        }
+
+    }
+
+    public void StayOut(boolean unTouchable,int turn){
+        setUnTouchable(unTouchable);
     }
 
     public String getName() {
@@ -76,5 +103,29 @@ public abstract class Characters {
 
     public void setHealthPoint(double healthPoint) {
         this.healthPoint = healthPoint;
+    }
+
+    public boolean isUnTouchable() {
+        return unTouchable;
+    }
+
+    public void setUnTouchable(boolean unTouchable) {
+        this.unTouchable = unTouchable;
+    }
+
+    public int getHowMuchTurnWillStayOut() {
+        return howMuchTurnWillStayOut;
+    }
+
+    public void setHowMuchTurnWillStayOut(int howMuchTurnWillStayOut) {
+        this.howMuchTurnWillStayOut = howMuchTurnWillStayOut;
+    }
+
+    public double getMaxHealthPoint() {
+        return maxHealthPoint;
+    }
+
+    public void setMaxHealthPoint(double maxHealthPoint) {
+        this.maxHealthPoint = maxHealthPoint;
     }
 }

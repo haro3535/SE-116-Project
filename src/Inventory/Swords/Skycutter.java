@@ -2,7 +2,6 @@ package Inventory.Swords;
 
 import Characters.Characters;
 import Characters.Enemy;
-import Characters.Fighter;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
@@ -12,21 +11,24 @@ public class Skycutter extends Weapons {
 
     SecureRandom random = new SecureRandom();
 
-    public Skycutter() {
+    public Skycutter(boolean isWield) {
+        super(isWield);
         setName("Skycutter");
         setValue("Rare");
         setWeight(5.0);
-        setDamage(random.nextInt(1,5)/10.0); // Each weapon has own damage value.
+        setDamage(random.nextDouble(1,5)/10.0); // Each weapon has own damage value.
     }
 
     @Override
-    public void Attack(Characters characters, String who, ArrayList<Enemy> enemies, String which) {
-        enemies.get(FindEnemyIndex(which,enemies)).HealthPointCalculator(characters.getStrength()*getDamage());
+    public void Attack(Characters whoIsAttacking,Characters whoGetAttacked) {
+        whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
     }
 
     @Override
-    public void SpecialAction() {
-
+    public void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which) {
+        characters.setUnTouchable(true);
+        characters.setHowMuchTurnWillStayOut(random.nextInt(2,4));  // her turn de bu sayıyı azalt
+        System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
     }
 
     public static int FindEnemyIndex(String which, ArrayList<Enemy> enemies){

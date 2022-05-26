@@ -11,12 +11,14 @@ public abstract class Weapons implements Items{
     private double weight;
     private String value;
     private double damage;
+    private boolean isWield;
 
-    public Weapons() {
+    public Weapons(boolean isWield) {
         name = "Unknown";
         weight = 0.0;
         value = "Unknown";
         damage = 0.0;
+        this.isWield = isWield;
     }
 
 
@@ -28,8 +30,8 @@ public abstract class Weapons implements Items{
         System.out.println("Damage Multiplier:  x" + getDamage());
         System.out.println("----------------------------");
     }
-    public abstract void Attack(Characters characters, String who, ArrayList<Enemy> enemies, String which);
-    public abstract void SpecialAction();
+    public abstract void Attack(Characters whoIsAttacking,Characters whoGetAttacked);
+    public abstract void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which);
 
     public String getValue() {
         return value;
@@ -61,5 +63,13 @@ public abstract class Weapons implements Items{
 
     public void setDamage(double damage) {
         this.damage = damage;
+    }
+
+    public boolean isWield() {
+        return isWield;
+    }
+
+    public void setWield(boolean wield) {
+        isWield = wield;
     }
 }

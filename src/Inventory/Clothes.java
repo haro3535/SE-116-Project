@@ -1,17 +1,21 @@
 package Inventory;
 
+import Characters.Characters;
+
 public abstract class Clothes implements Items {
 
     private String name;
     private double weight;
     private String value;
     private int blockPercent;
+    private boolean isWore;
 
-    public Clothes() {
+    public Clothes(boolean isWore) {
         name = "Unknown";
         weight = 0.0;
         value = "Unknown";
         blockPercent = 0;
+        this.isWore = isWore;
     }
 
     @Override
@@ -23,7 +27,7 @@ public abstract class Clothes implements Items {
         System.out.println("Block Chance:  %" + getBlockPercent());
         System.out.println("----------------------------");
     }
-    public abstract void Protect();
+
 
     public String getValue() {
         return value;
@@ -55,5 +59,13 @@ public abstract class Clothes implements Items {
 
     public void setBlockPercent(int blockPercent) {
         this.blockPercent = blockPercent;
+    }
+
+    public boolean isWore() {
+        return isWore;
+    }
+
+    public void setWore(boolean wore) {
+        isWore = wore;
     }
 }

@@ -12,5 +12,8 @@ public class Healer extends Characters{
         setVitality(random.nextDouble(1,6));
         setItems(new ArrayList<>());
         setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
+        setMaxHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
+        setUnTouchable(false);
+        setHowMuchTurnWillStayOut(0);
     }
 }

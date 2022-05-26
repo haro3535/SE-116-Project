@@ -1,5 +1,6 @@
 package Inventory.Armors;
 
+import Characters.Characters;
 import Inventory.Clothes;
 
 import java.security.SecureRandom;
@@ -7,15 +8,13 @@ import java.security.SecureRandom;
 public class David_s_Armor extends Clothes {
     SecureRandom random = new SecureRandom();
 
-    public David_s_Armor() {
+    public David_s_Armor(boolean isWore) {
+        super(isWore);
         setName("David's Armor");
         setValue("Legendary");
         setWeight(10.0);
         setBlockPercent(random.nextInt(90,101));
-    }
-
-    @Override
-    public void Protect() {
 
     }
+
 }
