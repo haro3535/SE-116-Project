@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Fixed the bug.">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Attack actions updated. Shield's Special Action added.">
+      <change afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653720480171</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Attack actions updated. Shield's Special Action added.">
+      <created>1653725676804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653725676804</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,19 +146,20 @@
     <MESSAGE value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
     <MESSAGE value="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created." />
     <MESSAGE value="Fixed the bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug." />
+    <MESSAGE value="Attack actions updated. Shield's Special Action added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Attack actions updated. Shield's Special Action added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
-          <line>42</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

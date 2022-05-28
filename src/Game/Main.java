@@ -12,6 +12,7 @@ import Inventory.Wands.Prophecy;
 import Inventory.Weapons;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,6 +49,7 @@ public class Main {
 
 
 
+
     }
 }
 
@@ -57,7 +59,7 @@ class ItemActionManagement{
 
         for (Items itm:
                 whoIsAttacking.getItems()) {
-            if (ClassName(itm.getClass().getName())) {
+            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
                 if (((Weapons) itm).isWield()) {
                     ((Weapons) itm).Attack(whoIsAttacking, whoGetAttacked);
                 }
@@ -68,7 +70,7 @@ class ItemActionManagement{
     public static void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which){
         for (Items itm:
                 characters.getItems()) {
-            if (ClassName(itm.getClass().getName())) {
+            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
                 if (((Weapons) itm).isWield()) {
                     ((Weapons) itm).SpecialAction(characters,enemies,which);
                 }
@@ -76,18 +78,6 @@ class ItemActionManagement{
         }
     }
 
-    public static boolean ClassName(String className){
-        String[] strings = {
-                "Inventory.Shields.Nethersbane","Inventory.Swords.Skycutter","Inventory.Prophecys.Prophecy",
 
-        };
-
-        for (String st:
-             strings) {
-            if (st.equals(className)) {
-                return true;
-            }
-        }return false;
-    }
 
 }

@@ -1,5 +1,6 @@
 package Characters;
 
+import Game.ItemManagement;
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shield;
@@ -45,16 +46,17 @@ public abstract class Characters {
         boolean isWieldShield = false;
         for (Items itm:
              getItems()) {
-            if (itm.getClass().getName().equals("Weapons")) {
+            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
                 if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
                     shield = (Shield) itm;
                     isWieldShield = true;
                 }
             }
-            if (itm.getClass().getName().equals("Clothes")) {
+            else if (ItemManagement.ClassNameForClothes(itm.getClass().getName())) {
                 if (((Clothes) itm).isWore()) {
                     armor = (Clothes) itm;
                     isWoreAnything = true;
+                    System.out.println("Hello");
                 }
             }
         }
