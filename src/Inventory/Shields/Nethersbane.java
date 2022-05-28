@@ -21,15 +21,24 @@ public class Nethersbane extends Shield {
         setDamage(random.nextDouble(1,5)/10.0);
         setShield(true);
         setBlockChance(random.nextInt(0,20));
+        setStunTurn(random.nextInt(1,4));
     }
 
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
-
+        whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
+        System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
     }
 
     @Override
     public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which) {
-
+        for (Enemy enm:
+             enemies) {
+            if (enm.getName().toLowerCase().contains(which)) {
+                enm.setStunned(true);
+                enm.setHowManyTurns(getStunTurn());
+                System.out.println("" + enm.getName() + " stunned for " + getStunTurn() + " turn!");
+            }
+        }
     }
 }

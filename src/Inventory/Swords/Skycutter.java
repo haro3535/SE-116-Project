@@ -24,6 +24,7 @@ public class Skycutter extends Sword {
     @Override
     public void Attack(Characters whoIsAttacking,Characters whoGetAttacked) {
         whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
+        System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
     }
 
     @Override

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created.">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Fixed the bug.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653585931947</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed the bug.">
+      <created>1653720480171</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653720480171</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,7 +136,8 @@
     <MESSAGE value="Items attack finished and characters health point and health point calculator finished!!" />
     <MESSAGE value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
     <MESSAGE value="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created." />
-    <option name="LAST_COMMIT_MESSAGE" value="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created." />
+    <MESSAGE value="Fixed the bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
