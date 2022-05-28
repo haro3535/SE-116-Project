@@ -41,4 +41,8 @@ public class Nethersbane extends Shield {
             }
         }
     }
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
 }

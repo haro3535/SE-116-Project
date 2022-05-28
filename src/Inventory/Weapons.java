@@ -36,7 +36,28 @@ public abstract class Weapons implements Items{
         System.out.println("Damage Multiplier:  x" + getDamage());
         System.out.println("----------------------------");
     }
-    public abstract void Attack(Characters whoIsAttacking,Characters whoGetAttacked);
+
+    @Override
+    public String displayName() {
+        return getName();
+    }
+
+    @Override
+    public double displayWeight() {
+        return getWeight();
+    }
+
+    @Override
+    public String displayValue() {
+        return getValue();
+    }
+
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
+
+    public abstract void Attack(Characters whoIsAttacking, Characters whoGetAttacked);
     public abstract void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which);
 
     public String getValue() {

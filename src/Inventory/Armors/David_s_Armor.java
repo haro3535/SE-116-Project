@@ -17,4 +17,9 @@ public class David_s_Armor extends Clothes {
 
     }
 
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
+
 }

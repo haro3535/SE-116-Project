@@ -28,6 +28,25 @@ public abstract class Clothes implements Items {
         System.out.println("----------------------------");
     }
 
+    @Override
+    public String displayName() {
+        return getName();
+    }
+
+    @Override
+    public double displayWeight() {
+        return getWeight();
+    }
+
+    @Override
+    public String displayValue() {
+        return getValue();
+    }
+
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
 
     public String getValue() {
         return value;

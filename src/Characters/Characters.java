@@ -1,6 +1,7 @@
 package Characters;
 
 import Game.ItemManagement;
+import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shield;
@@ -88,6 +89,43 @@ public abstract class Characters {
             setHealthPoint(getHealthPoint()-takenDamage);
         }
 
+    }
+    public void Examine(ArrayList<Items> dropped,String which,String which1){
+        int index = Levels.FindItemIndex(dropped,which,which1);
+
+        if (dropped.size() > 10) {
+            System.out.println("" + dropped.get(index).displayName() + " examined by " + getName());
+            for (Items itms:
+                    dropped) {
+                itms.printInfo();
+            }
+        }else {
+            System.out.println("" + dropped.get(index).displayName() + " examined by " + getName());
+            dropped.get(index).printInfo();
+        }
+    }
+
+    public void ListInventory(){
+        System.out.println("************************");
+        System.out.println("" + getName() + "'s Inventory");
+        System.out.println("************************");
+        for (Items itm:
+                getItems()) {
+            itm.printInfo();
+            System.out.print(" - Item Number: " + getItems().indexOf(itm) + "\n");
+        }
+    }
+
+    public void printCharacterInfo(){
+        System.out.println("************************");
+        System.out.println("Character's information");
+        System.out.println("************************");
+        System.out.println("Name: " + getName());
+        System.out.println("Strength: " + Math.round(getStrength()));
+        System.out.println("Vitality: " + Math.round(getVitality()));
+        System.out.println("Intelligence: " + Math.round(getIntelligence()));
+        System.out.printf("%s%.1f%n","HP: ", getHealthPoint());
+       // System.out.println("Charge: " + getCharge());
     }
 
     public void StayOut(boolean unTouchable,int turn){

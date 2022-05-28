@@ -35,4 +35,9 @@ public class Prophecy extends Wand {
         whoWillGetHealing.setHealthPoint((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
         }
     }
+
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
 }

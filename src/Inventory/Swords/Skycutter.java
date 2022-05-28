@@ -34,6 +34,11 @@ public class Skycutter extends Sword {
         System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
     }
 
+    @Override
+    public String displayClassName() {
+        return getClass().getName();
+    }
+
     public static int FindEnemyIndex(String which, ArrayList<Enemy> enemies){
         int index = 0;
         for (Enemy enm:
