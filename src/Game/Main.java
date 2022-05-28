@@ -8,6 +8,7 @@ import Characters.Enemy;
 import Inventory.Armors.David_s_Armor;
 import Inventory.Items;
 import Inventory.Swords.Skycutter;
+import Inventory.Wands.Prophecy;
 import Inventory.Weapons;
 
 import java.util.ArrayList;
@@ -56,8 +57,10 @@ class ItemActionManagement{
 
         for (Items itm:
                 whoIsAttacking.getItems()) {
-            if (((Weapons) itm).isWield()) {
-                ((Weapons) itm).Attack(whoIsAttacking, whoGetAttacked);
+            if (ClassName(itm.getClass().getName())) {
+                if (((Weapons) itm).isWield()) {
+                    ((Weapons) itm).Attack(whoIsAttacking, whoGetAttacked);
+                }
             }
         }
     }
@@ -65,10 +68,26 @@ class ItemActionManagement{
     public static void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which){
         for (Items itm:
                 characters.getItems()) {
-            if (((Weapons) itm).isWield()) {
-                ((Weapons) itm).SpecialAction(characters,enemies,which);
+            if (ClassName(itm.getClass().getName())) {
+                if (((Weapons) itm).isWield()) {
+                    ((Weapons) itm).SpecialAction(characters,enemies,which);
+                }
             }
         }
+    }
+
+    public static boolean ClassName(String className){
+        String[] strings = {
+                "Inventory.Shields.Nethersbane","Inventory.Swords.Skycutter","Inventory.Prophecys.Prophecy",
+
+        };
+
+        for (String st:
+             strings) {
+            if (st.equals(className)) {
+                return true;
+            }
+        }return false;
     }
 
 }

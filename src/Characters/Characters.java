@@ -45,19 +45,17 @@ public abstract class Characters {
         boolean isWieldShield = false;
         for (Items itm:
              getItems()) {
-            if (((Clothes) itm).isWore()) {
-                armor = (Clothes) itm;
-                isWoreAnything = true;
-                setHealthPoint(
-                        getHealthPoint() - (takenDamage - (takenDamage*(((Clothes) itm).getBlockPercent()/100.0))) // Armor decreases taken damage
-                        );
+            if (itm.getClass().getName().equals("Weapons")) {
+                if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
+                    shield = (Shield) itm;
+                    isWieldShield = true;
+                }
             }
-        }
-        for (Items itm:
-             getItems()) {
-            if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
-                shield = (Shield) itm;
-                isWieldShield = true;
+            if (itm.getClass().getName().equals("Clothes")) {
+                if (((Clothes) itm).isWore()) {
+                    armor = (Clothes) itm;
+                    isWoreAnything = true;
+                }
             }
         }
 

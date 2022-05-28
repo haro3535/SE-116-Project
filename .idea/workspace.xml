@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created.">
-      <change afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Shield.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Sword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Wand.java" afterDir="false" />
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +39,22 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/harun/IdeaProjects/ProjeDeneme2&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game.Main" />
+      <module name="Last_Version" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deneme" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Game.deneme" />
       <module name="Last_Version" />
       <extension name="coverage">
         <pattern>
@@ -63,6 +69,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.deneme" />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653579787908</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created.">
+      <created>1653585931947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653585931947</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,6 +127,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Items attack finished and characters health point and health point calculator finished!!" />
     <MESSAGE value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created." />
+    <MESSAGE value="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
