@@ -44,13 +44,16 @@ public class Levels {
         if (levelNumber == 1) {
             setCharacters(new ArrayList<>());
 
-            Characters tank = new Tank();
+            Tank tank = new Tank();
+            setTank(tank);
             getCharacters().add(tank);
 
-            Characters fighter = new Fighter();
+            Fighter fighter = new Fighter();
+            setFighter(fighter);
             getCharacters().add(fighter);
 
-            Characters healer = new Healer();
+            Healer healer = new Healer();
+            setHealer(healer);
             getCharacters().add(healer);
 
         }

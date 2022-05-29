@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Tank extends Characters{
     SecureRandom random = new SecureRandom();
     public Tank(){
-        setName("Healer");
+        setName("Tank");
         setIntelligence(random.nextDouble(3,8));
         setStrength(random.nextDouble(1,6));
         setVitality(random.nextDouble(6,11));
