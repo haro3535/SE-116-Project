@@ -20,6 +20,8 @@ public class Nethersbane extends Shield {
         setWeight(1.0);
         setDamage(random.nextDouble(1,5)/10.0);
         setShield(true);
+        setSword(false);
+        setWand(false);
         setBlockChance(random.nextInt(0,20));
         setStunTurn(random.nextInt(1,4));
     }

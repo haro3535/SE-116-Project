@@ -1,5 +1,8 @@
 package Characters;
 
+import Inventory.Clothes;
+import Inventory.Items;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
@@ -18,6 +21,26 @@ public class Enemy extends Characters{
         setItems(new ArrayList<>());
         setStunned(false);
         setHowManyTurns(0);
+        setCharge(0);
+        setUltiReady(false);
+    }
+
+    @Override
+    public void Examine(ArrayList<Items> dropped, String which, String which1) {
+        System.out.println("Enemy don't have Examine action!");
+    }
+    @Override
+    public void Pick(ArrayList<Items> droppedItems,String which,String which1) {
+        System.out.println("Enemy don't have Pick action!");
+    }
+
+    @Override
+    public void Wear(ArrayList<Items> items, String which, String which1) {
+        System.out.println("Enemy don't have Wear action!");
+    }
+    @Override
+    public void Wield(ArrayList<Items> items, String which, String which1) {
+        System.out.println("Enemy don't have Wield action!");
     }
 
     public boolean isStunned() {

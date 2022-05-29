@@ -20,6 +20,8 @@ public class Prophecy extends Wand {
         setDamage(random.nextDouble(4,16)/10.0);
         setHealingRate(random.nextDouble(14,17)/10.0);
         setWand(true);
+        setShield(false);
+        setSword(false);
     }
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {

@@ -21,6 +21,8 @@ public abstract class Characters {
     private boolean unTouchable;
     private int howMuchTurnWillStayOut;
     private double maxHealthPoint;
+    private int charge;
+    private boolean isUltiReady;
 
     public Characters() {
         name = "Unknown";
@@ -31,10 +33,21 @@ public abstract class Characters {
         healthPoint = 0.0;
         unTouchable = false;
         howMuchTurnWillStayOut = 0;
+        charge = 0;
+        isUltiReady = false;
     }
 
-    public Characters(String name) {
-        this.name = name;  // For enemy
+    public Characters(String name) {  // For enemy
+        this.name = name;
+        strength = 0.0;
+        vitality = 0.0;
+        intelligence = 0.0;
+        items = new ArrayList<>();
+        healthPoint = 0.0;
+        unTouchable = false;
+        howMuchTurnWillStayOut = 0;
+        charge = 0;
+        isUltiReady = false;
     }
 
     SecureRandom random = new SecureRandom();
@@ -47,13 +60,13 @@ public abstract class Characters {
         boolean isWieldShield = false;
         for (Items itm:
              getItems()) {
-            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
+            if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                 if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
                     shield = (Shield) itm;
                     isWieldShield = true;
                 }
             }
-            else if (ItemManagement.ClassNameForClothes(itm.getClass().getName())) {
+            else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
                 if (((Clothes) itm).isWore()) {
                     armor = (Clothes) itm;
                     isWoreAnything = true;
@@ -90,20 +103,11 @@ public abstract class Characters {
         }
 
     }
-    public void Examine(ArrayList<Items> dropped,String which,String which1){
-        int index = Levels.FindItemIndex(dropped,which,which1);
+    public abstract void Examine(ArrayList<Items> dropped,String which,String which1);
+    public abstract void Pick(ArrayList<Items> droppedItems,String which,String which1);
+    public abstract void Wear(ArrayList<Items> items, String which, String which1);
+    public abstract void Wield(ArrayList<Items> items, String which, String which1);
 
-        if (dropped.size() > 10) {
-            System.out.println("" + dropped.get(index).displayName() + " examined by " + getName());
-            for (Items itms:
-                    dropped) {
-                itms.printInfo();
-            }
-        }else {
-            System.out.println("" + dropped.get(index).displayName() + " examined by " + getName());
-            dropped.get(index).printInfo();
-        }
-    }
 
     public void ListInventory(){
         System.out.println("************************");
@@ -114,6 +118,18 @@ public abstract class Characters {
             itm.printInfo();
             System.out.print(" - Item Number: " + getItems().indexOf(itm) + "\n");
         }
+    }
+
+    public void CheckCharge(){
+        if (getCharge() == 100) {
+            setUltiReady(true);
+        }
+    }
+
+    public String Ready(){
+        if (isUltiReady()) {
+            return "Ready";
+        }else return "Not Ready";
     }
 
     public void printCharacterInfo(){
@@ -127,6 +143,7 @@ public abstract class Characters {
         System.out.printf("%s%.1f%n","HP: ", getHealthPoint());
        // System.out.println("Charge: " + getCharge());
     }
+
 
     public void StayOut(boolean unTouchable,int turn){
         setUnTouchable(unTouchable);
@@ -202,5 +219,21 @@ public abstract class Characters {
 
     public void setMaxHealthPoint(double maxHealthPoint) {
         this.maxHealthPoint = maxHealthPoint;
+    }
+
+    public int getCharge() {
+        return charge;
+    }
+
+    public void setCharge(int charge) {
+        this.charge = charge;
+    }
+
+    public boolean isUltiReady() {
+        return isUltiReady;
+    }
+
+    public void setUltiReady(boolean ultiReady) {
+        isUltiReady = ultiReady;
     }
 }

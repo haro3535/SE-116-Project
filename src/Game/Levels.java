@@ -56,7 +56,7 @@ public class Levels {
         }
     }
 
-    public void Turn(Scanner scanner,ArrayList<Enemy> enemies){
+    public void Turn(Scanner scanner){
 
         if (isLevelUp() || levelNumber == 1) {
             SecureRandom random = new SecureRandom();
@@ -162,7 +162,7 @@ public class Levels {
                                     if (c.getName().toLowerCase().contains(splitInput[0])) {
                                         for (Items itm:
                                                 c.getItems()) {
-                                            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
+                                            if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                                                 if (((Weapons) itm).isSword() && ((Weapons) itm).isWield()) {
                                                     ItemActionManagement.SpecialAction(c,getEnemies(),"");
                                                     isSword = true;
@@ -189,8 +189,8 @@ public class Levels {
                                 ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
                                 DeadEnemy(getEnemies(),splitInput[2]);
                                 EnemyAttack(getEnemies());
-                                if (characters1.getCharge() == 100) {
-                                    characters1.setSpecialTalent(true);
+                                characters1.CheckCharge();
+                                if (characters1.isUltiReady()) {
                                     System.out.println("" + characters1.getName() + " SpecialAction: " + characters1.Ready());
                                 }
                                 if (getEnemies().size() == 0) {
@@ -201,36 +201,26 @@ public class Levels {
                             case "ulti":
                                 for (Characters ch: getCharacters()) {
                                     if (ch.getName().toLowerCase().contains(splitInput[0])) {
-                                        switch (FindWieldWeapon(getCharacters(),FindCharacterIndex(characters,splitInput[0]))){
-                                            case "short sword","normal sword","long sword":
-                                                System.out.println("" + ch.getName() + " using a sword your command must be 2 word!");
-                                                System.out.println("Please enter appropriate command");
-                                                break;
-                                            case "new wand","old wand","ancient wand":
-                                                ch.SpecialAction(getCharacters(),splitInput[0],enemies);
-                                                break;
-                                            case "tower shield","normal shield","small shield":
-                                                ch.SpecialAction(getCharacters(),splitInput[2],enemies);
-                                                ch.Attack(enemies,splitInput[2]);
-                                                DeadEnemy(getEnemies(),splitInput[2]);
-                                                EnemyAttack(getCharacters(),getEnemies());
-                                                if (enemies.size() == 0) {
-                                                    displayDroppedItemList();
-                                                    levelNumber++;
-                                                }
-                                                UltiSetter();
-                                                break;
-                                            default:
-                                                System.out.println("Something went wrong at the ulti case of 3 digit command!");
+
+                                        Weapons usingWeapon = FindWieldWeapon(ch);
+                                        Characters character = FindCharacterObject(getCharacters(),splitInput[0]);
+
+                                        if (usingWeapon != null && usingWeapon.isSword() && character != null) {
+                                            System.out.println("" + ch.getName() + " is using a sword your command must be 2 word!");
+                                            System.out.println("Please enter appropriate command");
+                                        }
+                                        if (usingWeapon != null && usingWeapon.isShield() && character != null) {
+                                            ItemActionManagement.SpecialAction(ch,getEnemies(),splitInput[2]);
+                                        }
+                                        if (usingWeapon != null && usingWeapon.isWand() && character != null) {
+                                            ItemActionManagement.SpecialAction(ch,null,splitInput[2]);
+                                            ItemActionManagement.Attack(character,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
+                                            DeadEnemy(getEnemies(),splitInput[2]);
+                                            EnemyAttack(getEnemies());
+                                            isAllEnemyWereDead(getEnemies());
                                         }
                                     }
                                 }
-                                break;
-                            case "wield":
-                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Wield(Integer.parseInt(splitInput[2]));
-                                break;
-                            case "wear":
-                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Wear(Integer.parseInt(splitInput[2]));
                                 break;
                             default:
                                 System.out.println("Unaccepted function " + splitInput[1]);
@@ -256,6 +246,14 @@ public class Levels {
                                         System.out.println("Check your command again!");
                                     }
                                 } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                break;
+                            case "wear":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                        Wear(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],splitInput[3]);
+                                break;
+                            case "wield":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                        Wield(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],splitInput[3]);
                                 break;
                             case "examine":
                                 if (enemies.size() == 0) {
@@ -306,6 +304,13 @@ public class Levels {
             System.out.println("" + enemies.get(to).getName() + " were dead!");
             enemies.remove(to);
             ScoreCalculator(1);
+        }
+    }
+
+    public void isAllEnemyWereDead(ArrayList<Enemy> enemies){
+        if (enemies.size() == 0) {
+            displayDroppedItemList();
+            levelNumber++;
         }
     }
 
@@ -395,6 +400,29 @@ public class Levels {
         return index;
     }
 
+    public static Characters FindCharacterObject(ArrayList<Characters> characters , String who){
+
+        for (Characters obName:
+             characters) {
+            if (obName.getName().toLowerCase().equals(who)) {
+                return obName;
+            }
+        }
+        return null;
+    }
+
+    public static Enemy FindEnemyObject(ArrayList<Enemy> enemies , String who){
+
+        for (Enemy obName:
+                enemies) {
+            if (obName.getName().toLowerCase().equals(who)) {
+                return obName;
+            }
+        }
+        return null;
+    }
+
+
     public static int FindEnemyIndex(ArrayList<Enemy> enemies, String who){
         int index = 0;
         for (Enemy enm:
@@ -406,19 +434,33 @@ public class Levels {
         return index;
     }
 
+    public static Weapons FindWieldWeapon(Characters characters){
+
+        for (Items itm:
+                characters.getItems()){
+            if (((Weapons) itm).isWield()) {
+                return ((Weapons) itm);
+            }
+        }
+        return null;
+    }
+
     public static int FindItemIndex(ArrayList<Items> items, String which, String which1){
         int index = 0;
         boolean found = false;
+        if (which1 == null) {
+            which1 = "";
+        }
         String name = "Unknown";
         for (Items itm:
                 items) {
-            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
+            if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                 if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
                     index = items.indexOf(itm);
                     name = ((Weapons) itm).getName();
                     found = true;
                 }
-            } else if (ItemManagement.ClassNameForClothes(itm.getClass().getName())) {
+            } else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
                 if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
                     index = items.indexOf(itm);
                     name = ((Clothes) itm).getName();
@@ -532,4 +574,5 @@ public class Levels {
     public void setTank(Tank tank) {
         this.tank = tank;
     }
+    public static int getLevelNumber(){return levelNumber;}
 }

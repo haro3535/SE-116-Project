@@ -7,6 +7,7 @@ public interface Items {
      double displayWeight();
      String displayValue();
      String displayClassName();
+
      String[] WeaponsClassNames = {
              "Nethersbane","Skycutter","Prophecy",
      } ;

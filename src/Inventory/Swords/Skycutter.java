@@ -19,6 +19,8 @@ public class Skycutter extends Sword {
         setWeight(5.0);
         setDamage(random.nextDouble(5,10)/10.0); // Each weapon has own damage value.
         setSword(true);
+        setWand(false);
+        setShield(false);
     }
 
     @Override

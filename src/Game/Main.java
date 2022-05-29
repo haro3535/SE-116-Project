@@ -1,83 +1,159 @@
 package Game;
 
-import Characters.Fighter;
-import Characters.Characters;
-import Characters.Healer;
-import Characters.Tank;
-import Characters.Enemy;
-import Inventory.Armors.David_s_Armor;
-import Inventory.Items;
-import Inventory.Swords.Skycutter;
-import Inventory.Wands.Prophecy;
-import Inventory.Weapons;
-
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Characters fighter = new Fighter();
-        Characters tank = new Tank();
-        Characters healer = new Healer();
-        Enemy enemy = new Enemy("enemy1");
-        Weapons skycutter = new Skycutter(true);
-        fighter.getItems().add(skycutter);
+
+        Scanner scanner = new Scanner(System.in);
+
+        loop = true;
+        while (loop){
+
+            displayMenu();
+            int chose = Integer.parseInt(scanner.nextLine());
+
+            switch (chose){
+                case 0:
+                    loop = false;
+                    System.out.println("Game is closing...");
+                    break;
+                case 1:
+                    RegisterPlayer();
+                    if (loop) {
+                        Levels levels = new Levels();
+                        while (!Levels.isFinished()){
+                            // Our Game Loop
+
+                            levels.Turn(scanner);
+                            if (Levels.isLevelUp()) {
+                                System.out.println("Next Level!");
+                                Levels.ScoreCalculator((Levels.getLevelNumber()*100));
+                                System.out.println("Level " + (Levels.getLevelNumber()-1));
+                            }
+                        }
+                    }
+                    break;
+                case 2:
+                    ShowScoreboard();
+                    break;
+                case 3:
+                    Instructive instructive = new Instructive();
+                    instructive.Start();
+                    break;
+                case 4:
+                    // Buraya oyunu yapanlar hakkında bilgilendirme getirebilir
+                    break;
+                default:
+                    System.out.println("Unaccepted value " + chose);
+                    System.out.println("Try again!");
+            }
 
 
-        ArrayList<Enemy> enemies = new ArrayList<>();
-        enemies.add(enemy);
-        System.out.println("Enemy hp "+enemy.getHealthPoint());
-        System.out.println("Fighter strength " +fighter.getStrength());
-        ItemActionManagement.Attack(fighter,enemy);
-        System.out.println("fighter attacked to enemy");
-        ItemActionManagement.SpecialAction(fighter,enemies,"");
-        System.out.println("Enemy hp "+enemy.getHealthPoint());
 
-        System.out.println("------------------------------");
-
-        Weapons skycutter1 = new Skycutter(true);
-        enemy.getItems().add(skycutter1);
-        System.out.println("tank hp " + tank.getHealthPoint());
-        ItemActionManagement.Attack(enemy,tank);
-        System.out.println("tank hp " + tank.getHealthPoint());
-        tank.getItems().add(new David_s_Armor(true));
-        ItemActionManagement.Attack(enemy,tank);
-        System.out.println("Enemy attack to the tank");
-        System.out.println("tank hp " + tank.getHealthPoint());
-
-
-
-
-
-
+        }
     }
-}
+    public static boolean loop;
+    public static void RegisterPlayer(){
+        Scanner scanner = new Scanner(System.in);
 
-class ItemActionManagement{
+        System.out.println("*** Welcome to Game ***");
+        System.out.println("First you need to register to game ( For save your score )");
+        System.out.println("For Exit type \" exit \" (With lower case) ");
+        System.out.println("------------------------");
+        System.out.print("Enter Your Username: ");
+        String userName = scanner.nextLine();
+        if (!userName.equals("exit")) {
+            Levels.setUserName(userName);
+            return;
+        }
+        loop = false;
+    }
 
-    public static void Attack(Characters whoIsAttacking, Characters whoGetAttacked){
+    public static void ShowScoreboard(){
+        try {
 
-        for (Items itm:
-                whoIsAttacking.getItems()) {
-            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
-                if (((Weapons) itm).isWield()) {
-                    ((Weapons) itm).Attack(whoIsAttacking, whoGetAttacked);
+            System.out.println();
+            System.out.println("                *** Here is the Scoreboard ***");
+            System.out.println("            ---------------------------------------");
+
+            File readScoreboard = new File("Scores.txt");
+            Scanner scoreboardReader = new Scanner(readScoreboard);
+
+
+            int sizeOfFile = 0;
+            while (scoreboardReader.hasNextLine()){
+                scoreboardReader.nextLine();
+                sizeOfFile++;
+            }
+            scoreboardReader.close();
+
+            Integer[] array = new Integer[sizeOfFile];
+
+            File readScoreboard1 = new File("Scores.txt");
+            Scanner scoreboardReader1 = new Scanner(readScoreboard1);
+            int i = 0;
+            while (scoreboardReader1.hasNextLine()){
+                String info = scoreboardReader1.nextLine();
+                String[] splitInput = info.split(" - ");
+
+                int IntegerPart = Integer.parseInt(splitInput[1]);
+                array[i] = IntegerPart;
+                i++;
+            }
+
+            for (int j = 0; j < array.length; j++) {
+                for (int k = 0; k < array.length-1; k++) {
+                    if (array[k] < array[k+1]) {
+                        int temp = array[k+1];
+                        array[k+1] = array[k];
+                        array[k] = temp;
+                    }
                 }
             }
+
+            for (int j = 0; j < array.length; j++) {
+
+                File readScoreboard2 = new File("Scores.txt");
+                Scanner scoreboardReader2 = new Scanner(readScoreboard2);
+
+                while (scoreboardReader2.hasNextLine()){
+                    String info = scoreboardReader2.nextLine();
+                    String[] splitInput = info.split(" - ");
+
+                    int IntegerPart = Integer.parseInt(splitInput[1]);
+                    if (IntegerPart == array[j]) {
+                        System.out.println("" + (j+1) + ".            " + splitInput[0] + "      -     " + array[j] + " pt");
+                    }
+                }
+                scoreboardReader2.close();
+                if (j == 20) {
+                    return;
+                }
+            }
+
+        }catch (IOException err){
+            err.printStackTrace();
         }
     }
 
-    public static void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which){
-        for (Items itm:
-                characters.getItems()) {
-            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
-                if (((Weapons) itm).isWield()) {
-                    ((Weapons) itm).SpecialAction(characters,enemies,which);
-                }
-            }
-        }
+
+
+    public static void displayMenu(){
+        System.out.println();
+        System.out.println("*** Welcome to Cannon Fodder ***");
+        System.out.println("---------------------------------");
+        System.out.println("Play - ( Enter 1 )");
+        System.out.println("Show Scoreboard ( Enter 2 )");
+        System.out.println("How to play ( Enter 3 )");
+        System.out.println("Exit - ( Enter 0 )");
+        System.out.println("-----");
+        System.out.println("Who contributed? ( Enter 4 )");
+        System.out.println("---------------------------------");
+        System.out.print("Enter: ");
     }
-
-
-
 }
+
+
