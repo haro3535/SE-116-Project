@@ -7,6 +7,7 @@ import Characters.Healer;
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shields.Nethersbane;
+import Inventory.Sword;
 import Inventory.Swords.Skycutter;
 import Inventory.Wands.Prophecy;
 import Inventory.Weapons;
@@ -39,7 +40,6 @@ public class Levels {
         enemies = new ArrayList<>();
         droppedItemArrayList = new ArrayList<>();
 
-        SecureRandom random = new SecureRandom();
 
         if (levelNumber == 1) {
             setCharacters(new ArrayList<>());
@@ -84,12 +84,198 @@ public class Levels {
                 }
                 enemies.add(enemy);
             }
-           // DroppedItemCreator(enemies);
+            DroppedItemCreator(enemies);
+        }
+
+
+        setLevelUp(false);
+        while (!isLevelUp()){
+            System.out.println("---------------------------");
+            System.out.println("Characters and Enemies information");
+            System.out.println("---------------------------");
+            for (Characters ch:
+                    characters) {
+                System.out.println("- Name: " + ch.getName());
+                System.out.println("- Charge:" + ch.getCharge() + "  - SpecialAction: " + ch.Ready());
+                System.out.printf("%s%.1f%n","- HP: ", ch.getHealthPoint());
+                System.out.println("---------");
+            }
+            System.out.println("---------------------------");
+            int enemyCounter = 0;
+            for (Enemy enm:
+                    enemies) {
+                System.out.printf("%s%s%s%.1f%s%d%n","- Name: ",enm.getName(),"  - HP: ", enm.getHealthPoint(),"  - Number: ", enemyCounter);
+                System.out.println("---------");
+                enemyCounter++;
+            }
+
+            System.out.println("----------------------------------------------------------------");
+            System.out.println("For One Word Commands    ->    Next , Exit , ...");
+            System.out.println("For Two Word Commands    ->    (Character's Name) Info , (Character's Name) Inventory , (Character's Name) Ulti, ...");
+            System.out.println("For Three Word Commands  ->    (Character's Name)  (function) (Enemy's Name) , (Character's Name) (function) (Character's Name),");
+            System.out.println("                         ->    (Character's Name)  (function) (Dropped Item's Item Number) , (Character's Name)  (function) (Character Item's Item Number)");
+            System.out.println("----------------------------------------------------------------");
+            System.out.print("Enter: ");
+
+            boolean inputLoop = true;
+            while (inputLoop){
+                String input = scanner.nextLine().toLowerCase();
+                String[] splitInput = input.split(" ");  // For split input
+
+                switch (splitInput.length){
+                    case 1:
+                        switch (splitInput[0]){
+                            case "next":
+                                if (getEnemies().size() == 0 ) {
+                                    RoundEndHealing();
+                                    setLevelUp(true);
+                                    inputLoop = false;
+                                    System.out.println("Moving to the next level!");
+                                    System.out.println("------------");
+                                    continue;
+                                }else System.out.println("You can't move on to next level. There is an enemy still alive!");
+                                break;
+                            case "exit":
+                                System.out.println("Exited from the Game!!");
+                                setFinished(true);
+                                System.out.println("Your score is " + Score);
+                                SaveScore();
+                                return;
+                            default:
+                                System.out.println("Unaccepted command " + input);
+                                System.out.println("Please enter appropriate command!");
+                        }
+                        break;
+                    case 2:
+                        switch (splitInput[1]){
+                            case "info":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).printCharacterInfo();
+                                break;
+                            case "inventory":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).ListInventory();
+                                break;
+                            case "ulti":
+                                boolean isSword = false;
+                                String whoCalled = "Unknown";
+                                for (Characters c:
+                                        getCharacters()) {
+                                    if (c.getName().toLowerCase().contains(splitInput[0])) {
+                                        for (Items itm:
+                                                c.getItems()) {
+                                            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
+                                                if (((Weapons) itm).isSword() && ((Weapons) itm).isWield()) {
+                                                    ItemActionManagement.SpecialAction(c,getEnemies(),"");
+                                                    isSword = true;
+                                                }
+                                            }
+                                            whoCalled = c.getName();
+                                        }
+                                    }
+                                }
+                                if (!isSword) {
+                                    System.out.println("" + whoCalled + " is not using a sword right now!");
+                                    System.out.println("Please be more careful.");
+                                }
+                                break;
+                            default:
+                                System.out.println("Unaccepted function " + splitInput[1]);
+                                System.out.println("Please enter appropriate command!");
+                        }
+                        break;
+                    case 3:
+                        switch (splitInput[1]){
+                            case "attack":
+                                Characters characters1 = getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0]));
+                                ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
+                                DeadEnemy(getEnemies(),splitInput[2]);
+                                EnemyAttack(getEnemies());
+                                if (characters1.getCharge() == 100) {
+                                    characters1.setSpecialTalent(true);
+                                    System.out.println("" + characters1.getName() + " SpecialAction: " + characters1.Ready());
+                                }
+                                if (getEnemies().size() == 0) {
+                                    displayDroppedItemList();
+                                    levelNumber++;
+                                }
+                                break;
+                            case "ulti":
+                                for (Characters ch: getCharacters()) {
+                                    if (ch.getName().toLowerCase().contains(splitInput[0])) {
+                                        switch (FindWieldWeapon(getCharacters(),FindCharacterIndex(characters,splitInput[0]))){
+                                            case "short sword","normal sword","long sword":
+                                                System.out.println("" + ch.getName() + " using a sword your command must be 2 word!");
+                                                System.out.println("Please enter appropriate command");
+                                                break;
+                                            case "new wand","old wand","ancient wand":
+                                                ch.SpecialAction(getCharacters(),splitInput[0],enemies);
+                                                break;
+                                            case "tower shield","normal shield","small shield":
+                                                ch.SpecialAction(getCharacters(),splitInput[2],enemies);
+                                                ch.Attack(enemies,splitInput[2]);
+                                                DeadEnemy(getEnemies(),splitInput[2]);
+                                                EnemyAttack(getCharacters(),getEnemies());
+                                                if (enemies.size() == 0) {
+                                                    displayDroppedItemList();
+                                                    levelNumber++;
+                                                }
+                                                UltiSetter();
+                                                break;
+                                            default:
+                                                System.out.println("Something went wrong at the ulti case of 3 digit command!");
+                                        }
+                                    }
+                                }
+                                break;
+                            case "wield":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Wield(Integer.parseInt(splitInput[2]));
+                                break;
+                            case "wear":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Wear(Integer.parseInt(splitInput[2]));
+                                break;
+                            default:
+                                System.out.println("Unaccepted function " + splitInput[1]);
+                                System.out.println("Please enter appropriate function!");
+                        }
+                        break;
+                    case 4:
+                        switch (splitInput[1]){
+                            case "pick":
+                                if (enemies.size() == 0) {
+                                    boolean hasPicked = false;
+                                    int who = 0;
+                                    for (Characters ch :
+                                            getCharacters()) {
+                                        if (ch.getName().toLowerCase().contains(splitInput[0])) {
+                                            ch.Pick(getDroppedItemArrayList(), splitInput[2], splitInput[3]);
+                                            who = getCharacters().indexOf(ch);
+                                            hasPicked = true;
+                                        }
+                                    }
+                                    if (!hasPicked) {
+                                        System.out.println("" + getCharacters().get(who).getName() + " couldn't pick the item");
+                                        System.out.println("Check your command again!");
+                                    }
+                                } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                break;
+                            case "examine":
+                                if (enemies.size() == 0) {
+                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],splitInput[3]);
+                                }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                break;
+                            default:
+                                System.out.println("Unaccepted function " + splitInput[1]);
+                                System.out.println("Please enter appropriate function!");
+                        }
+                        break;
+                    default:
+                        System.out.println("Please enter appropriate command!");
+                }
+            }
         }
     }
 
     SecureRandom random1 = new SecureRandom();
-    public void EnemyAttack( ArrayList<Enemy> enemies1){
+    public void EnemyAttack(ArrayList<Enemy> enemies1){
         if (enemies1.size() == 0) {
             return;  // If all Enemies are dead
         }
@@ -107,6 +293,37 @@ public class Levels {
             }else System.out.println("All Characters Were Dead!");
         }
     }
+
+    public void DeadEnemy(ArrayList<Enemy> enemies, String who){
+        int to = 0;
+        for (Enemy enm:
+                enemies) {
+            if (enm.getName().toLowerCase().contains(who)) {
+                to = enemies.indexOf(enm);
+            }
+        }
+        if (enemies.get(to).getHealthPoint() <= 0.0) {
+            System.out.println("" + enemies.get(to).getName() + " were dead!");
+            enemies.remove(to);
+            ScoreCalculator(1);
+        }
+    }
+
+    public void DeadAllies(ArrayList<Characters> characters, int to){
+        if (characters.get(to).getHealthPoint() <= 0.0) {
+            System.out.println("" + characters.get(to).getName() + " were dead!");
+            characters.remove(to);
+            switch (characters.getClass().getName()) {
+                case "Characters.Fighter" -> setFighter(null);
+                case "Characters.Healer" -> setHealer(null);
+                case "Characters.Tank" -> setTank(null);
+                default -> System.out.println("Could not get class name! ");
+
+                // Add exception
+            }
+        }
+    }
+
 
     public void RoundEndHealing(){
 
@@ -136,8 +353,23 @@ public class Levels {
         }
     }
 
-    public void DroppedItemCreator(){
+    public void DroppedItemCreator(ArrayList<Enemy> enemies){
+        int itemCreated = random1.nextInt(enemies.size());
 
+        if (getDroppedItemArrayList() != null || levelNumber > 1) {
+            getDroppedItemArrayList().clear(); // Each level start the array must be empty!
+        }
+
+        for (int i = 0; i < itemCreated; i++) {
+            int weaponOrCloth = random1.nextInt(2);
+
+            if (weaponOrCloth == 0) {
+                int dropChance = random1.nextInt(1,101);
+                if (dropChance >= 1 && dropChance <= 85 ) {
+
+                }
+            }
+        }
     }
     public void displayDroppedItemList(){
         System.out.println("---------------------------------");
@@ -145,19 +377,80 @@ public class Levels {
         System.out.println("---------------------------------");
         for (Items itm:
                 droppedItemArrayList) {
-                if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
-                    System.out.println("- " + ((Weapons) itm).getName());
-                }
-
-                if (ItemManagement.ClassNameForClothes(itm.getClass().getName())) {
-                    System.out.println("- " + ((Clothes) itm).getName());
-                }
-
+            System.out.println("- " + itm.displayName());
         }
         System.out.println("----------------");
         System.out.println("- " + droppedItemArrayList.size() + " item dropped!");
         System.out.println("---------------------------------");
     }
+
+    public static int FindCharacterIndex(ArrayList<Characters> characters, String who){
+        int index = 0;
+        for (Characters ch:
+                characters) {
+            if (ch.getName().toLowerCase().contains(who)) {
+                index = characters.indexOf(ch);
+            }
+        }
+        return index;
+    }
+
+    public static int FindEnemyIndex(ArrayList<Enemy> enemies, String who){
+        int index = 0;
+        for (Enemy enm:
+                enemies) {
+            if (enm.getName().toLowerCase().contains(who)) {
+                index = enemies.indexOf(enm);
+            }
+        }
+        return index;
+    }
+
+    public static int FindItemIndex(ArrayList<Items> items, String which, String which1){
+        int index = 0;
+        boolean found = false;
+        String name = "Unknown";
+        for (Items itm:
+                items) {
+            if (ItemManagement.ClassNameForWeapons(itm.getClass().getName())) {
+                if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
+                    index = items.indexOf(itm);
+                    name = ((Weapons) itm).getName();
+                    found = true;
+                }
+            } else if (ItemManagement.ClassNameForClothes(itm.getClass().getName())) {
+                if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
+                    index = items.indexOf(itm);
+                    name = ((Clothes) itm).getName();
+                    found = true;
+                }
+            }
+        }
+        if (!found) {
+            System.out.println("" + name + " couldn't found!");
+            System.out.println("Check your command again!");
+        }
+        return index;
+    }
+
+    private static int Score = 0;
+    public static void ScoreCalculator(int point){
+        Score += point;
+    }
+
+    public void SaveScore(){
+        try {
+
+            FileWriter Scores = new FileWriter("Scores.txt",true);
+
+            Scores.write("" + getUserName() + " - " + Score + "\n");
+            Scores.close();
+
+        }catch (IOException err){
+            err.printStackTrace();
+        }
+    }
+
 
 
     public static String getUserName() {
