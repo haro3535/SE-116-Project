@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added" />
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="workspace.xml again!!!!!">
+      <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653912225674</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="workspace.xml again!!!!!">
+      <created>1653912261392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1653912261392</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,19 +185,20 @@
     <MESSAGE value="Added some new methods" />
     <MESSAGE value="improved turn method" />
     <MESSAGE value="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added" />
+    <MESSAGE value="workspace.xml again!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml again!!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>211</line>
+          <line>210</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>125</line>
+          <line>124</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

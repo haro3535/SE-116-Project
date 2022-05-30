@@ -7,12 +7,12 @@ import Characters.Healer;
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shields.Nethersbane;
-import Inventory.Sword;
+
 import Inventory.Swords.Skycutter;
 import Inventory.Wands.Prophecy;
 import Inventory.Weapons;
 
-import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -29,7 +29,6 @@ public class Levels {
 
     private ArrayList<Enemy> enemies;
     private ArrayList<Characters> characters;
-    private ArrayList<Characters> forFighter;
     private ArrayList<Items> droppedItemArrayList;
     private Tank tank;
     private Fighter fighter;
@@ -37,8 +36,8 @@ public class Levels {
 
 
     public Levels(){
-        enemies = new ArrayList<>();
-        droppedItemArrayList = new ArrayList<>();
+        setEnemies(new ArrayList<>());
+        setDroppedItemArrayList(new ArrayList<>());
 
 
         if (levelNumber == 1) {
@@ -386,6 +385,7 @@ public class Levels {
 
     public void DroppedItemCreator(ArrayList<Enemy> enemies){
         int itemCreated = random1.nextInt(enemies.size());
+        ItemManagement.CreateItem();
 
         if (getDroppedItemArrayList() != null || levelNumber > 1) {
             getDroppedItemArrayList().clear(); // Each level start the array must be empty!
@@ -397,8 +397,11 @@ public class Levels {
             if (weaponOrCloth == 0) {
                 int dropChance = random1.nextInt(1,101);
                 if (dropChance >= 1 && dropChance <= 85 ) {
-
-                }
+                    getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
+                } else if (dropChance > 85 && dropChance <= 95) {
+                    getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
+                }else
+                    getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
             }
         }
     }
@@ -548,14 +551,6 @@ public class Levels {
 
     public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
-    }
-
-    public ArrayList<Characters> getForFighter() {
-        return forFighter;
-    }
-
-    public void setForFighter(ArrayList<Characters> forFighter) {
-        this.forFighter = forFighter;
     }
 
     public ArrayList<Items> getDroppedItemArrayList() {
