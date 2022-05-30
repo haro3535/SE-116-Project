@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Added some new methods">
-      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
-    </list>
+ Updated upstream
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="improved turn method" />
 =======
     <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Two string array and one Class created.&#10;displayDroppedItemList method created. RoundEndHealing method added. EnemyAttack method added. Turn method added.HealthPointCalculator updated." />
 >>>>>>> Stashed changes
@@ -136,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653745578765</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="improved turn method">
+      <created>1653824638131</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653824638131</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,7 +164,8 @@
     <MESSAGE value="Attack actions updated. Shield's Special Action added." />
     <MESSAGE value="Two string array and one Class created.&#10;displayDroppedItemList method created. RoundEndHealing method added. EnemyAttack method added. Turn method added.HealthPointCalculator updated." />
     <MESSAGE value="Added some new methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some new methods" />
+    <MESSAGE value="improved turn method" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved turn method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -25,6 +25,7 @@ public class Prophecy extends Wand {
     }
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
+        System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
         whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
         System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
     }

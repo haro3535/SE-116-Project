@@ -28,6 +28,7 @@ public class Nethersbane extends Shield {
 
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
+        System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
         whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
         System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
     }
