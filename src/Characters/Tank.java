@@ -3,6 +3,8 @@ package Characters;
 import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
+import Inventory.Shields.Nethersbane;
+import Inventory.Swords.Skycutter;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
@@ -16,6 +18,7 @@ public class Tank extends Characters{
         setStrength(random.nextDouble(1,6));
         setVitality(random.nextDouble(6,11));
         setItems(new ArrayList<>());
+        getItems().add(new Nethersbane(true));
         setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
         setMaxHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
         setUnTouchable(false);

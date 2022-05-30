@@ -66,7 +66,7 @@ public class Levels {
 
             int enemyCounter = 1;
             if (levelNumber > 1) {
-                for (int i = 0; i < levelNumber; i++) {
+                for (int i = 1; i < levelNumber; i++) {
                     enemyCounter *= 2;
                 }
             }
@@ -123,7 +123,23 @@ public class Levels {
             boolean inputLoop = true;
             while (inputLoop){
                 String input = scanner.nextLine().toLowerCase();
-                String[] splitInput = input.split(" ");  // For split input
+                String[] splitInput1 = input.split(" ");  // For split input
+
+                int arraySize = 0;
+                for (String st:
+                     splitInput1) {
+                    if (!st.equals("")) {
+                        arraySize++;
+                    }
+                }
+                String[] splitInput = new String[arraySize];
+                int alignment = 0;
+                for (String s : splitInput1) {
+                    if (!s.equals("")) {
+                        splitInput[alignment] = s;
+                        alignment++;
+                    }
+                }
 
                 switch (splitInput.length){
                     case 1:
@@ -152,7 +168,11 @@ public class Levels {
                     case 2:
                         switch (splitInput[1]){
                             case "info":
+                                if (splitInput[0].contains("enemy")) {
+                                    getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[0])).printCharacterInfo();
+                                }else {
                                 getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).printCharacterInfo();
+                                }
                                 break;
                             case "inventory":
                                 getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).ListInventory();
@@ -192,6 +212,7 @@ public class Levels {
                                 ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
                                 DeadEnemy(getEnemies(),splitInput[2]);
                                 EnemyAttack(getEnemies());
+                                DeadAllies(getCharacters());
                                 characters1.CheckCharge();
                                 if (characters1.isUltiReady()) {
                                     System.out.println("" + characters1.getName() + " SpecialAction: " + characters1.Ready());
@@ -220,6 +241,7 @@ public class Levels {
                                             ItemActionManagement.Attack(character,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
                                             DeadEnemy(getEnemies(),splitInput[2]);
                                             EnemyAttack(getEnemies());
+                                            DeadAllies(getCharacters());
                                             isAllEnemyWereDead(getEnemies());
                                         }
                                     }
@@ -317,17 +339,18 @@ public class Levels {
         }
     }
 
-    public void DeadAllies(ArrayList<Characters> characters, int to){
-        if (characters.get(to).getHealthPoint() <= 0.0) {
-            System.out.println("" + characters.get(to).getName() + " were dead!");
-            characters.remove(to);
-            switch (characters.getClass().getName()) {
-                case "Characters.Fighter" -> setFighter(null);
-                case "Characters.Healer" -> setHealer(null);
-                case "Characters.Tank" -> setTank(null);
-                default -> System.out.println("Could not get class name! ");
-
-                // Add exception
+    public void DeadAllies(ArrayList<Characters> characters){
+        for (Characters ch:
+             characters) {
+            if (ch.getHealthPoint() <= 0.0) {
+                System.out.println("" + ch.getName() + " were dead!");
+                characters.remove(ch);
+                switch (ch.getClass().getName()) {
+                    case "Characters.Fighter" -> setFighter(null);
+                    case "Characters.Healer" -> setHealer(null);
+                    case "Characters.Tank" -> setTank(null);
+                    default -> System.out.println("Could not get class name! ");
+                }
             }
         }
     }
@@ -449,33 +472,30 @@ public class Levels {
     }
 
     public static int FindItemIndex(ArrayList<Items> items, String which, String which1){
-        int index = 0;
-        boolean found = false;
-        if (which1 == null) {
-            which1 = "";
-        }
-        String name = "Unknown";
-        for (Items itm:
-                items) {
-            if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
-                if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
-                    index = items.indexOf(itm);
-                    name = ((Weapons) itm).getName();
-                    found = true;
-                }
-            } else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
-                if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
-                    index = items.indexOf(itm);
-                    name = ((Clothes) itm).getName();
-                    found = true;
+
+        try {
+            if (which1 == null) {
+                which1 = "";
+            }
+
+            for (Items itm:
+                    items) {
+                if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
+                    if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
+                        return items.indexOf(itm);
+                    }
+                } else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
+                    if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
+                        return items.indexOf(itm);
+                    }
                 }
             }
-        }
-        if (!found) {
-            System.out.println("" + name + " couldn't found!");
+
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Item couldn't found!");
             System.out.println("Check your command again!");
         }
-        return index;
+        return -1;
     }
 
     private static int Score = 0;

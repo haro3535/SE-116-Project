@@ -1,6 +1,7 @@
 package Game;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,46 +14,44 @@ public class Main {
         while (loop){
 
             displayMenu();
-            int chose = Integer.parseInt(scanner.nextLine());
+            try {
+                int chose = Integer.parseInt(scanner.nextLine());
 
-            switch (chose){
-                case 0:
-                    loop = false;
-                    System.out.println("Game is closing...");
-                    break;
-                case 1:
-                    RegisterPlayer();
-                    if (loop) {
-                        Levels levels = new Levels();
-                        while (!Levels.isFinished()){
-                            // Our Game Loop
+                switch (chose){
+                    case 0:
+                        loop = false;
+                        System.out.println("Game is closing...");
+                        break;
+                    case 1:
+                        RegisterPlayer();
+                        if (loop) {
+                            Levels levels = new Levels();
+                            while (!Levels.isFinished()){
+                                // Game Loop
 
-                            levels.Turn(scanner);
-                            if (Levels.isLevelUp()) {
-                                System.out.println("Next Level!");
-                                Levels.ScoreCalculator((Levels.getLevelNumber()*100));
-                                System.out.println("Level " + (Levels.getLevelNumber()-1));
+                                levels.Turn(scanner);
+                                if (Levels.isLevelUp()) {
+                                    System.out.println("Next Level!");
+                                    Levels.ScoreCalculator((Levels.getLevelNumber()*100));
+                                    System.out.println("Level " + (Levels.getLevelNumber()-1));
+                                }
                             }
                         }
-                    }
-                    break;
-                case 2:
-                    ShowScoreboard();
-                    break;
-                case 3:
-                    Instructive instructive = new Instructive();
-                    instructive.Start();
-                    break;
-                case 4:
-                    // Buraya oyunu yapanlar hakkında bilgilendirme getirebilir
-                    break;
-                default:
-                    System.out.println("Unaccepted value " + chose);
-                    System.out.println("Try again!");
+                        break;
+                    case 2:
+                        ShowScoreboard();
+                        break;
+                    case 3:
+                        Instructive instructive = new Instructive();
+                        instructive.Start();
+                        break;
+                    default:
+                        System.out.println("Unaccepted value " + chose);
+                        System.out.println("Try again!");
+                }
+            }catch (NumberFormatException nfe){
+                System.out.println("You must enter an appropriate input!");
             }
-
-
-
         }
     }
     public static boolean loop;
@@ -134,7 +133,7 @@ public class Main {
                 }
             }
 
-        }catch (IOException err){
+        }catch (FileNotFoundException err){
             err.printStackTrace();
         }
     }
@@ -150,7 +149,7 @@ public class Main {
         System.out.println("How to play ( Enter 3 )");
         System.out.println("Exit - ( Enter 0 )");
         System.out.println("-----");
-        System.out.println("Who contributed? ( Enter 4 )");
+        System.out.println("-- Created by Harun Onur --");
         System.out.println("---------------------------------");
         System.out.print("Enter: ");
     }

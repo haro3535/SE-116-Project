@@ -4,6 +4,7 @@ package Characters;
 import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
+import Inventory.Swords.Skycutter;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
@@ -18,6 +19,7 @@ public class Fighter extends Characters{
         setStrength(random.nextDouble(6,11));
         setVitality(random.nextDouble(3,8));
         setItems(new ArrayList<>());
+        getItems().add(new Skycutter(true));
         setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
         setMaxHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
         setUnTouchable(false);
