@@ -1,13 +1,13 @@
 package Characters;
 
 import Game.ItemManagement;
-import Game.Levels;
+
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shield;
 import Inventory.Weapons;
 
-import java.security.SecureRandom;
+
 import java.util.ArrayList;
 
 public abstract class Characters {
@@ -50,7 +50,7 @@ public abstract class Characters {
         isUltiReady = false;
     }
 
-    SecureRandom random = new SecureRandom();
+
     public void HealthPointCalculator(double takenDamage){
 
         Clothes armor = null;
@@ -58,50 +58,56 @@ public abstract class Characters {
 
         boolean isWoreAnything = false;
         boolean isWieldShield = false;
-        for (Items itm:
-             getItems()) {
-            if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
-                if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
-                    shield = (Shield) itm;
-                    isWieldShield = true;
+        try {
+            for (Items itm:
+                    getItems()) {
+                if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
+                    if (((Weapons) itm).isWield() && ((Weapons) itm).isShield()) {
+                        shield = (Shield) itm;
+                        isWieldShield = true;
+                    }
+                }
+                else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
+                    if (((Clothes) itm).isWore()) {
+                        armor = (Clothes) itm;
+                        isWoreAnything = true;
+                    }
                 }
             }
-            else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
-                if (((Clothes) itm).isWore()) {
-                    armor = (Clothes) itm;
-                    isWoreAnything = true;
-                    System.out.println("Hello");
-                }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Item's array is empty!");
+        }
+
+        try {
+            if (isWieldShield && !isWoreAnything) {
+                double damage = takenDamage*shield.getBlockChance();
+                if (damage > 0.0) {
+                    setHealthPoint(getHealthPoint()-takenDamage);
+                }else System.out.println("Blocked!");
             }
-        }
 
-        if (isWieldShield && !isWoreAnything) {
-            double damage = takenDamage*shield.getBlockChance();
-            if (damage > 0.0) {
-                setHealthPoint(getHealthPoint()-takenDamage);
-            }else System.out.println("Blocked!");
-        }
-
-        if (isWoreAnything && !isWieldShield) {
-            setHealthPoint(
-                    getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
-                    );
-        }
-
-        if (isWieldShield && isWoreAnything) {
-            double damage = takenDamage*shield.getBlockChance();
-            if (damage > 0.0) {
+            if (isWoreAnything && !isWieldShield) {
                 setHealthPoint(
                         getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
                 );
-            }else System.out.println("Blocked!");
+            }
 
+            if (isWieldShield && isWoreAnything) {
+                double damage = takenDamage*shield.getBlockChance();
+                if (damage > 0.0) {
+                    setHealthPoint(
+                            getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
+                    );
+                }else System.out.println("Blocked!");
+
+            }
+
+            if (!isWieldShield && !isWoreAnything){
+                setHealthPoint(getHealthPoint()-takenDamage);
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("HealthPointCalculator has a problem about object Clothe or object Shield!");
         }
-
-        if (!isWieldShield && !isWoreAnything){
-            setHealthPoint(getHealthPoint()-takenDamage);
-        }
-
     }
     public abstract void Examine(ArrayList<Items> dropped,String which,String which1);
     public abstract void Pick(ArrayList<Items> droppedItems,String which,String which1);
@@ -113,10 +119,14 @@ public abstract class Characters {
         System.out.println("************************");
         System.out.println("" + getName() + "'s Inventory");
         System.out.println("************************");
-        for (Items itm:
-                getItems()) {
-            itm.printInfo();
-            System.out.print(" - Item Number: " + getItems().indexOf(itm) + "\n");
+        try {
+            for (Items itm:
+                    getItems()) {
+                itm.printInfo();
+                System.out.print(" - Item Number: " + getItems().indexOf(itm) + "\n");
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Item's array is empty!");
         }
     }
 
@@ -142,11 +152,6 @@ public abstract class Characters {
         System.out.println("Intelligence: " + Math.round(getIntelligence()));
         System.out.printf("%s%.1f%n","HP: ", getHealthPoint());
        // System.out.println("Charge: " + getCharge());
-    }
-
-
-    public void StayOut(boolean unTouchable,int turn){
-        setUnTouchable(unTouchable);
     }
 
     public String getName() {

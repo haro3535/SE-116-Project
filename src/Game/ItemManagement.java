@@ -10,26 +10,34 @@ import java.util.ArrayList;
 public class ItemManagement {
     public static boolean ClassNameForWeapons(String className){
 
-        String[] split = className.split("\\.");
+        try {
+            String[] split = className.split("\\.");
 
-        for (String st:
-                Items.WeaponsClassNames) {
-            if (st.equals(split[2])) {
-                return true;
+            for (String st:
+                    Items.WeaponsClassNames) {
+                if (st.equals(split[2])) {
+                    return true;
+                }
             }
+        }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+            System.out.println("Something went wrong in class names!");
         }
         return false;
     }
 
     public static boolean ClassNameForClothes(String className){
 
-        String[] split = className.split("\\.");
+        try {
+            String[] split = className.split("\\.");
 
-        for (String st:
-                Items.ClothesClassNames) {
-            if (st.equals(split[2])) {
-                return true;
+            for (String st:
+                    Items.ClothesClassNames) {
+                if (st.equals(split[2])) {
+                    return true;
+                }
             }
+        }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+            System.out.println("Something went wrong in class names!");
         }
         return false;
     }

@@ -134,7 +134,7 @@ public class Main {
             }
 
         }catch (FileNotFoundException err){
-            err.printStackTrace();
+            System.out.println(" Scores.txt file couldn't find!!");
         }
     }
 

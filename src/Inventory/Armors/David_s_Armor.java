@@ -1,6 +1,5 @@
 package Inventory.Armors;
 
-import Characters.Characters;
 import Inventory.Clothes;
 
 import java.security.SecureRandom;

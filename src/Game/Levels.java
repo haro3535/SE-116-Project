@@ -89,6 +89,10 @@ public class Levels {
             DroppedItemCreator(enemies);
         }
 
+        if (isLevelUp() && getLevelNumber() > 1) {
+            RoundEndHealing();
+            RoundEndImproves(getCharacters());
+        }
 
         setLevelUp(false);
         while (!isLevelUp()){
@@ -121,6 +125,9 @@ public class Levels {
 
             boolean inputLoop = true;
             while (inputLoop){
+                StayOutManager(getCharacters());
+                StunManager(getEnemies());
+
                 String input = scanner.nextLine().toLowerCase();
                 String[] splitInput1 = input.split(" ");  // For split input
 
@@ -145,7 +152,6 @@ public class Levels {
                         switch (splitInput[0]){
                             case "next":
                                 if (getEnemies().size() == 0 ) {
-                                    RoundEndHealing();
                                     setLevelUp(true);
                                     inputLoop = false;
                                     System.out.println("Moving to the next level!");
@@ -298,21 +304,33 @@ public class Levels {
 
     SecureRandom random1 = new SecureRandom();
     public void EnemyAttack(ArrayList<Enemy> enemies1){
-        if (enemies1.size() == 0) {
-            return;  // If all Enemies are dead
-        }
 
-        int enemyNumber = random1.nextInt(enemies1.size());
+        try {
 
-        if (tank.getHealthPoint() > 0.0) {
-            ItemActionManagement.Attack(enemies1.get(enemyNumber),getTank());
-        }else {
-            int ran = random1.nextInt(2);
-            if (ran == 0 && getFighter().getHealthPoint() > 0.0){
-                ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
-            }else if (getHealer().getHealthPoint() > 0.0) {
-                ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
-            }else System.out.println("All Characters Were Dead!");
+            int enemyNumber = random1.nextInt(enemies1.size());
+
+            boolean isInStun = true;
+            if (!enemies1.get(enemyNumber).isStunned()) {
+                if (getTank().getHealthPoint() > 0.0) {
+                    ItemActionManagement.Attack(enemies1.get(enemyNumber),getTank());
+                    isInStun = false;
+                }else {
+                    int ran = random1.nextInt(2);
+                    if (ran == 0 && getFighter().getHealthPoint() > 0.0){
+                        ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
+                        isInStun = false;
+                    }else if (getHealer().getHealthPoint() > 0.0) {
+                        ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
+                        isInStun = false;
+                    }else System.out.println("All Characters Were Dead!");
+                }
+            }
+            if (isInStun) {
+                System.out.println("Enemy stunned! Couldn't attack! Turn pass!");
+            }
+
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is empty!");
         }
     }
 
@@ -380,6 +398,56 @@ public class Levels {
                 double restHealth = getFighter().getMaxHealthPoint() - getFighter().getHealthPoint();
                 getFighter().setHealthPoint(restHealth + getFighter().getHealthPoint());
             }
+        }
+    }
+
+    public void RoundEndImproves(ArrayList<Characters> characters){
+        try {
+            for (Characters ch:
+                    characters) {
+                ch.setStrength(ch.getStrength()*1.10);
+                ch.setIntelligence(ch.getIntelligence()*1.10);
+                ch.setVitality(ch.getVitality()*1.10);
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character array " + characters.toString() + " is empty!");
+        }
+    }
+
+    public void StayOutManager(ArrayList<Characters> characters){
+        try {
+            for (Characters ch:
+                    characters) {
+                if (ch.getHowMuchTurnWillStayOut() != 0) {
+                    ch.setHowMuchTurnWillStayOut(ch.getHowMuchTurnWillStayOut()-1);
+                } else if (ch.getHowMuchTurnWillStayOut() == 0) {
+                    ch.setUnTouchable(false);
+                }
+                else {
+                    throw new IndexOutOfBoundsException("Stay Out turn can not less than 0!");
+                }
+            }
+        }catch (NullPointerException exception){
+            System.out.println("Character array " + characters.toString() + " is empty!");
+        }
+
+    }
+
+    public void StunManager(ArrayList<Enemy> enemies){
+        try {
+            for (Enemy enemy:
+                    enemies) {
+                if (enemy.getHowManyTurns() != 0) {
+                    enemy.setHowManyTurns(enemy.getHowManyTurns()-1);
+                } else if (enemy.getHowManyTurns() == 0) {
+                    enemy.setStunned(false);
+                }
+                else {
+                    throw new IndexOutOfBoundsException("Stay Out turn can not less than 0!");
+                }
+            }
+        }catch (NullPointerException exception){
+            System.out.println("Character array " + characters.toString() + " is empty!");
         }
     }
 
@@ -475,8 +543,10 @@ public class Levels {
     }
 
     public static int FindItemIndex(ArrayList<Items> items, String which, String which1){
+        int index = -1;
 
         try {
+
             if (which1 == null) {
                 which1 = "";
             }
@@ -485,11 +555,11 @@ public class Levels {
                     items) {
                 if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                     if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
-                        return items.indexOf(itm);
+                        index = items.indexOf(itm);
                     }
                 } else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
                     if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
-                        return items.indexOf(itm);
+                        index = items.indexOf(itm);
                     }
                 }
             }
@@ -498,7 +568,7 @@ public class Levels {
             System.out.println("Item couldn't found!");
             System.out.println("Check your command again!");
         }
-        return -1;
+        return index;
     }
 
     private static int Score = 0;

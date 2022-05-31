@@ -1,6 +1,5 @@
 package Inventory;
 
-import Characters.Characters;
 
 public abstract class Clothes implements Items {
 

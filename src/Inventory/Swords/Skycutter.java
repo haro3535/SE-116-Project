@@ -3,7 +3,7 @@ package Inventory.Swords;
 import Characters.Characters;
 import Characters.Enemy;
 import Inventory.Sword;
-import Inventory.Weapons;
+
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class Skycutter extends Sword {
         setName("Skycutter");
         setValue("Rare");
         setWeight(5.0);
-        setDamage(random.nextDouble(5,10)/10.0); // Each weapon has own damage value.
+        setDamage(random.nextDouble(5,10)/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);
         setShield(false);
@@ -25,16 +25,27 @@ public class Skycutter extends Sword {
 
     @Override
     public void Attack(Characters whoIsAttacking,Characters whoGetAttacked) {
-        System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
-        whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
-        System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
+        try {
+            if (!whoIsAttacking.isUnTouchable()) {
+                System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
+                whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
+                System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
+            }else
+                System.out.println("" + whoIsAttacking.getName() + " can't attack right now. He/She will stay out for " + whoIsAttacking.getHowMuchTurnWillStayOut() + " turn!");
+        }catch (NullPointerException nullPointerException){
+            System.out.println("One or two of Character object is null!");
+        }
     }
 
     @Override
     public void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which) {
-        characters.setUnTouchable(true);
-        characters.setHowMuchTurnWillStayOut(random.nextInt(2,4));  // her turn de bu sayıyı azalt
-        System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
+        try {
+            characters.setUnTouchable(true);
+            characters.setHowMuchTurnWillStayOut(random.nextInt(2,4));
+            System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
+        }catch (NullPointerException nullPointerException){
+            System.out.println("One or more parameter is null!");
+        }
     }
 
     @Override
@@ -42,15 +53,5 @@ public class Skycutter extends Sword {
         return getClass().getName();
     }
 
-    public static int FindEnemyIndex(String which, ArrayList<Enemy> enemies){
-        int index = 0;
-        for (Enemy enm:
-             enemies) {
-            if (enm.getName().equals(which)) {
-                index = enemies.indexOf(enm);
-            }
-        }
-        return index;
-    }
 
 }

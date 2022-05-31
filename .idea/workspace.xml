@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="new method and arrays added to ItemManagement.java. Levels.java and  it's DroppedItemCreator method updated&#10;workspace.xml again!!!!!!!!!!!!!!" />
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="&#10;runConfigurations.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Healer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Healer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/ItemActionManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemActionManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Clothes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Clothes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653913483411</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="&#10;workspace.xml again!!!!!!!!!!!!!!">
+      <created>1654007713496</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654007713496</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&#10;runConfigurations.xml">
+      <created>1654007746506</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1654007746506</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,19 +221,21 @@
     <MESSAGE value="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added" />
     <MESSAGE value="workspace.xml again!!!!!" />
     <MESSAGE value="new method and arrays added to ItemManagement.java. Levels.java and  it's DroppedItemCreator method updated&#10;workspace.xml again!!!!!!!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="new method and arrays added to ItemManagement.java. Levels.java and  it's DroppedItemCreator method updated&#10;workspace.xml again!!!!!!!!!!!!!!" />
+    <MESSAGE value="&#10;workspace.xml again!!!!!!!!!!!!!!" />
+    <MESSAGE value="&#10;runConfigurations.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;runConfigurations.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>210</line>
+          <line>216</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>124</line>
+          <line>131</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
