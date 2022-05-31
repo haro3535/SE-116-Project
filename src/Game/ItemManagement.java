@@ -47,10 +47,13 @@ public class ItemManagement {
     public static ArrayList<Items> legendary;
     public static void CreateItem(){
         // For Ordinary
+        ordinary = new ArrayList<>();
         ordinary.add(new Nethersbane(false));
         // For Rare
+        rare = new ArrayList<>();
         rare.add(new Skycutter(false));
         // For Legendary
+        legendary = new ArrayList<>();
         legendary.add(new Prophecy(false));
     }
 }
