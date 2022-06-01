@@ -28,7 +28,7 @@ public class Prophecy extends Wand {
         try {
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
+            System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getIntelligence()*getDamage() + " damage!");
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");
         }

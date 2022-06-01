@@ -313,6 +313,9 @@ public class Levels {
 
         try {
 
+            if (enemies1.size() == 0) {
+                return;
+            }
             int enemyNumber = random1.nextInt(enemies1.size());
 
             boolean isInStun = true;
