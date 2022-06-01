@@ -258,6 +258,25 @@ public class Levels {
                                     }
                                 }
                                 break;
+                            case "pick":
+                                if (enemies.size() == 0) {
+                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                            Pick(getDroppedItemArrayList(), splitInput[2], null);
+                                } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                break;
+                            case "examine":
+                                if (enemies.size() == 0) {
+                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],null);
+                                }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                break;
+                            case "wear":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                        Wear(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                break;
+                            case "wield":
+                                getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                        Wield(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                break;
                             default:
                                 System.out.println("Unaccepted function " + splitInput[1]);
                                 System.out.println("Please enter appropriate function!");
@@ -267,20 +286,8 @@ public class Levels {
                         switch (splitInput[1]){
                             case "pick":
                                 if (enemies.size() == 0) {
-                                    boolean hasPicked = false;
-                                    int who = 0;
-                                    for (Characters ch :
-                                            getCharacters()) {
-                                        if (ch.getName().toLowerCase().contains(splitInput[0])) {
-                                            ch.Pick(getDroppedItemArrayList(), splitInput[2], splitInput[3]);
-                                            who = getCharacters().indexOf(ch);
-                                            hasPicked = true;
-                                        }
-                                    }
-                                    if (!hasPicked) {
-                                        System.out.println("" + getCharacters().get(who).getName() + " couldn't pick the item");
-                                        System.out.println("Check your command again!");
-                                    }
+                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                            Pick(getDroppedItemArrayList(), splitInput[2], splitInput[3]);
                                 } else System.out.println("You can't pick items. There is an enemy still alive!");
                                 break;
                             case "wear":
