@@ -60,34 +60,40 @@ public class Levels {
 
     public void Turn(Scanner scanner){
 
-        if (isLevelUp() || levelNumber == 1) {
-            SecureRandom random = new SecureRandom();
+        try {
+            if (isLevelUp() || levelNumber == 1) {
+                SecureRandom random = new SecureRandom();
 
-            int enemyCounter = 1;
-            if (levelNumber > 1) {
-                for (int i = 1; i < levelNumber; i++) {
-                    enemyCounter *= 2;
+                int enemyCounter = 1;
+                if (levelNumber > 1) {
+                    for (int i = 1; i < levelNumber; i++) {
+                        enemyCounter *= 2;
+                    }
                 }
-            }
 
-            for (int i = 0; i < enemyCounter; i++) {
-                int randomRatio = random.nextInt(100);
+                for (int i = 0; i < enemyCounter; i++) {
+                    int randomRatio = random.nextInt(100);
 
-                Enemy enemy = new Enemy("Enemy"+(i+1));
-                if (randomRatio < 80) {
-                    Items weaponEnemy = new Skycutter(true);
-                    enemy.getItems().add(weaponEnemy);
-                } else if (randomRatio < 90) {
-                    Items weaponEnemy = new Nethersbane(true);
-                    enemy.getItems().add(weaponEnemy);
-                }else {
-                    Items weaponEnemy = new Prophecy(true);
-                    enemy.getItems().add(weaponEnemy);
+                    Enemy enemy = new Enemy("Enemy"+(i+1));
+                    if (randomRatio < 80) {
+                        Items weaponEnemy = new Skycutter(true);
+                        enemy.getItems().add(weaponEnemy);
+                    } else if (randomRatio < 90) {
+                        Items weaponEnemy = new Nethersbane(true);
+                        enemy.getItems().add(weaponEnemy);
+                    }else {
+                        Items weaponEnemy = new Prophecy(true);
+                        enemy.getItems().add(weaponEnemy);
+                    }
+                    enemies.add(enemy);
                 }
-                enemies.add(enemy);
+                DroppedItemCreator(enemies);
             }
-            DroppedItemCreator(enemies);
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy's item array is null!");
+            System.out.println("Levels.Turn enemy creator");
         }
+
 
         if (isLevelUp() && getLevelNumber() > 1) {
             RoundEndHealing();
@@ -335,69 +341,88 @@ public class Levels {
     }
 
     public void DeadEnemy(ArrayList<Enemy> enemies, String who){
-        int to = 0;
-        for (Enemy enm:
-                enemies) {
-            if (enm.getName().toLowerCase().contains(who)) {
-                to = enemies.indexOf(enm);
+        int to = -1;
+        try {
+            for (Enemy enm:
+                    enemies) {
+                if (enm.getName().toLowerCase().contains(who)) {
+                    to = enemies.indexOf(enm);
+                }
             }
-        }
-        if (enemies.get(to).getHealthPoint() <= 0.0) {
-            System.out.println("" + enemies.get(to).getName() + " were dead!");
-            enemies.remove(to);
-            ScoreCalculator(1);
+            if (enemies.get(to).getHealthPoint() <= 0.0) {
+                System.out.println("" + enemies.get(to).getName() + " were dead!");
+                enemies.remove(to);
+                ScoreCalculator(1);
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is null!");
+            System.out.println("DeadEnemy - 454");
         }
     }
 
     public void isAllEnemyWereDead(ArrayList<Enemy> enemies){
-        if (enemies.size() == 0) {
-            displayDroppedItemList();
-            levelNumber++;
+        try {
+            if (enemies.size() == 0) {
+                displayDroppedItemList();
+                levelNumber++;
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is null!");
+            System.out.println("isAllEnemyWereDead - 454");
         }
     }
 
     public void DeadAllies(ArrayList<Characters> characters){
-        for (Characters ch:
-             characters) {
-            if (ch.getHealthPoint() <= 0.0) {
-                System.out.println("" + ch.getName() + " were dead!");
-                characters.remove(ch);
-                switch (ch.getClass().getName()) {
-                    case "Characters.Fighter" -> setFighter(null);
-                    case "Characters.Healer" -> setHealer(null);
-                    case "Characters.Tank" -> setTank(null);
-                    default -> System.out.println("Could not get class name! ");
+        try {
+            for (Characters ch:
+                    characters) {
+                if (ch.getHealthPoint() <= 0.0) {
+                    System.out.println("" + ch.getName() + " were dead!");
+                    characters.remove(ch);
+                    switch (ch.getClass().getName()) {
+                        case "Characters.Fighter" -> setFighter(null);
+                        case "Characters.Healer" -> setHealer(null);
+                        case "Characters.Tank" -> setTank(null);
+                        default -> System.out.println("Could not get class name! ");
+                    }
                 }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character array is null!");
+            System.out.println("DeadAllies - 454");
         }
     }
 
 
     public void RoundEndHealing(){
-
-        if (getHealer() != null) {
-            if (getHealer().getHealthPoint()+ (getHealer().getHealthPoint()/2) <= getHealer().getMaxHealthPoint() ) {
-                getHealer().setHealthPoint(getHealer().getHealthPoint() + (getHealer().getHealthPoint()/2));
-            }else {
-                double restHealth = getHealer().getMaxHealthPoint() - getHealer().getHealthPoint();
-                getHealer().setHealthPoint(restHealth + getHealer().getHealthPoint());
+        try {
+            if (getHealer() != null) {
+                if (getHealer().getHealthPoint()+ (getHealer().getHealthPoint()/2) <= getHealer().getMaxHealthPoint() ) {
+                    getHealer().setHealthPoint(getHealer().getHealthPoint() + (getHealer().getHealthPoint()/2));
+                }else {
+                    double restHealth = getHealer().getMaxHealthPoint() - getHealer().getHealthPoint();
+                    getHealer().setHealthPoint(restHealth + getHealer().getHealthPoint());
+                }
             }
-        }
-        if (getTank() != null) {
-            if (getTank().getHealthPoint()+ (getTank().getHealthPoint()/2) <= getTank().getMaxHealthPoint() ) {
-                getTank().setHealthPoint(getTank().getHealthPoint() + (getTank().getHealthPoint()/2));
-            }else {
-                double restHealth = getTank().getMaxHealthPoint() - getTank().getHealthPoint();
-                getTank().setHealthPoint(restHealth + getTank().getHealthPoint());
+            if (getTank() != null) {
+                if (getTank().getHealthPoint()+ (getTank().getHealthPoint()/2) <= getTank().getMaxHealthPoint() ) {
+                    getTank().setHealthPoint(getTank().getHealthPoint() + (getTank().getHealthPoint()/2));
+                }else {
+                    double restHealth = getTank().getMaxHealthPoint() - getTank().getHealthPoint();
+                    getTank().setHealthPoint(restHealth + getTank().getHealthPoint());
+                }
             }
-        }
-        if (getFighter() != null) {
-            if (getFighter().getHealthPoint()+ (getFighter().getHealthPoint()/2) <= getFighter().getMaxHealthPoint() ) {
-                getFighter().setHealthPoint(getFighter().getHealthPoint() + (getFighter().getHealthPoint()/2));
-            }else {
-                double restHealth = getFighter().getMaxHealthPoint() - getFighter().getHealthPoint();
-                getFighter().setHealthPoint(restHealth + getFighter().getHealthPoint());
+            if (getFighter() != null) {
+                if (getFighter().getHealthPoint()+ (getFighter().getHealthPoint()/2) <= getFighter().getMaxHealthPoint() ) {
+                    getFighter().setHealthPoint(getFighter().getHealthPoint() + (getFighter().getHealthPoint()/2));
+                }else {
+                    double restHealth = getFighter().getMaxHealthPoint() - getFighter().getHealthPoint();
+                    getFighter().setHealthPoint(restHealth + getFighter().getHealthPoint());
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character object is null!");
+            System.out.println("RoundEndHealing - 454");
         }
     }
 
@@ -452,92 +477,127 @@ public class Levels {
     }
 
     public void DroppedItemCreator(ArrayList<Enemy> enemies){
-        int itemCreated = random1.nextInt(enemies.size());
-        ItemManagement.CreateItem();
+        try {
+            int itemCreated = random1.nextInt(enemies.size());
+            ItemManagement.CreateItem();
 
-        if (getDroppedItemArrayList() != null || levelNumber > 1) {
-            getDroppedItemArrayList().clear(); // Each level start the array must be empty!
-        }
-
-        for (int i = 0; i < itemCreated; i++) {
-            int weaponOrCloth = random1.nextInt(2);
-
-            if (weaponOrCloth == 0) {
-                int dropChance = random1.nextInt(1,101);
-                if (dropChance >= 1 && dropChance <= 85 ) {
-                    getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
-                } else if (dropChance > 85 && dropChance <= 95) {
-                    getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
-                }else
-                    getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
+            if (getDroppedItemArrayList() != null || levelNumber > 1) {
+                getDroppedItemArrayList().clear(); // Each level start the array must be empty!
             }
+
+            for (int i = 0; i < itemCreated; i++) {
+                int weaponOrCloth = random1.nextInt(2);
+
+                if (weaponOrCloth == 0) {
+                    int dropChance = random1.nextInt(1,101);
+                    if (dropChance >= 1 && dropChance <= 85 ) {
+                        getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
+                    } else if (dropChance > 85 && dropChance <= 95) {
+                        getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
+                    }else
+                        getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
+                }
+            }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is null!");
+            System.out.println("DroppedItemCreator - 454");
         }
+
     }
     public void displayDroppedItemList(){
-        System.out.println("---------------------------------");
-        System.out.println("Items Dropped By Enemies");
-        System.out.println("---------------------------------");
-        for (Items itm:
-                droppedItemArrayList) {
-            System.out.println("- " + itm.displayName());
+        try {
+            System.out.println("---------------------------------");
+            System.out.println("Items Dropped By Enemies");
+            System.out.println("---------------------------------");
+            for (Items itm:
+                    droppedItemArrayList) {
+                System.out.println("- " + itm.displayName());
+            }
+            System.out.println("----------------");
+            System.out.println("- " + droppedItemArrayList.size() + " item dropped!");
+            System.out.println("---------------------------------");
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Dropped Item's array is null!");
+            System.out.println("Levels.displayDroppedItemList - 482");
         }
-        System.out.println("----------------");
-        System.out.println("- " + droppedItemArrayList.size() + " item dropped!");
-        System.out.println("---------------------------------");
     }
 
     public static int FindCharacterIndex(ArrayList<Characters> characters, String who){
-        int index = 0;
-        for (Characters ch:
-                characters) {
-            if (ch.getName().toLowerCase().contains(who)) {
-                index = characters.indexOf(ch);
+        int index = -1;
+        try {
+            for (Characters ch:
+                    characters) {
+                if (ch.getName().toLowerCase().contains(who)) {
+                    index = characters.indexOf(ch);
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character array is null!");
+            System.out.println("Levels.FindCharacterIndex - 489");
         }
         return index;
     }
 
     public static Characters FindCharacterObject(ArrayList<Characters> characters , String who){
 
-        for (Characters obName:
-             characters) {
-            if (obName.getName().toLowerCase().equals(who)) {
-                return obName;
+        try {
+            for (Characters obName:
+                    characters) {
+                if (obName.getName().toLowerCase().equals(who)) {
+                    return obName;
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character array is null!");
+            System.out.println("Levels.FindCharacterObject - 500");
         }
         return null;
     }
 
     public static Enemy FindEnemyObject(ArrayList<Enemy> enemies , String who){
 
-        for (Enemy obName:
-                enemies) {
-            if (obName.getName().toLowerCase().equals(who)) {
-                return obName;
+        try {
+            for (Enemy obName:
+                    enemies) {
+                if (obName.getName().toLowerCase().equals(who)) {
+                    return obName;
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is null!");
+            System.out.println("Levels.FindEnemyObject - 500");
         }
         return null;
     }
 
 
     public static int FindEnemyIndex(ArrayList<Enemy> enemies, String who){
-        int index = 0;
-        for (Enemy enm:
-                enemies) {
-            if (enm.getName().toLowerCase().contains(who)) {
-                index = enemies.indexOf(enm);
+        int index = -1;
+        try {
+            for (Enemy enm:
+                    enemies) {
+                if (enm.getName().toLowerCase().contains(who)) {
+                    index = enemies.indexOf(enm);
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Enemy array is null!");
+            System.out.println("Levels.FindEnemyIndex - 538");
         }
         return index;
     }
 
     public static Weapons FindWieldWeapon(Characters characters){
-
-        for (Items itm:
-                characters.getItems()){
-            if (((Weapons) itm).isWield()) {
-                return ((Weapons) itm);
+        try {
+            for (Items itm:
+                    characters.getItems()){
+                if (((Weapons) itm).isWield()) {
+                    return ((Weapons) itm);
+                }
             }
+        }catch (NullPointerException nullPointerException){
+            System.out.println("Character object is null!");
+            System.out.println("Levels.FindWieldWeapon - 500");
         }
         return null;
     }
