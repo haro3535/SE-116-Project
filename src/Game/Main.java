@@ -2,7 +2,6 @@ package Game;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,37 +16,36 @@ public class Main {
             try {
                 int chose = Integer.parseInt(scanner.nextLine());
 
-                switch (chose){
-                    case 0:
+                switch (chose) {
+                    case 0 -> {
                         loop = false;
                         System.out.println("Game is closing...");
-                        break;
-                    case 1:
+                    }
+                    case 1 -> {
                         RegisterPlayer();
                         if (loop) {
                             Levels levels = new Levels();
-                            while (!Levels.isFinished()){
+                            while (!Levels.isFinished()) {
                                 // Game Loop
 
                                 levels.Turn(scanner);
                                 if (Levels.isLevelUp()) {
                                     System.out.println("Next Level!");
-                                    Levels.ScoreCalculator((Levels.getLevelNumber()*100));
-                                    System.out.println("Level " + (Levels.getLevelNumber()-1));
+                                    Levels.ScoreCalculator((Levels.getLevelNumber() * 100));
+                                    System.out.println("Level " + (Levels.getLevelNumber() - 1));
                                 }
                             }
                         }
-                        break;
-                    case 2:
-                        ShowScoreboard();
-                        break;
-                    case 3:
+                    }
+                    case 2 -> ShowScoreboard();
+                    case 3 -> {
                         Instructive instructive = new Instructive();
                         instructive.Start();
-                        break;
-                    default:
+                    }
+                    default -> {
                         System.out.println("Unaccepted value " + chose);
                         System.out.println("Try again!");
+                    }
                 }
             }catch (NumberFormatException nfe){
                 System.out.println("You must enter an appropriate input!");
