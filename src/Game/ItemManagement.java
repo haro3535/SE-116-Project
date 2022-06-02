@@ -3,7 +3,7 @@ package Game;
 import Inventory.Armors.David_s_Armor;
 import Inventory.Items;
 import Inventory.Shields.Nethersbane;
-import Inventory.Swords.Skycutter;
+import Inventory.Swords.*;
 import Inventory.Wands.Prophecy;
 
 import java.util.ArrayList;
@@ -50,6 +50,8 @@ public class ItemManagement {
         // For Ordinary
         ordinary = new ArrayList<>();
         ordinary.add(new Nethersbane(false));
+        ordinary.add(new Cometfell(false));
+        ordinary.add(new Infamy(false));
         // For Rare
         rare = new ArrayList<>();
         rare.add(new Skycutter(false));
@@ -57,5 +59,7 @@ public class ItemManagement {
         legendary = new ArrayList<>();
         legendary.add(new Prophecy(false));
         legendary.add(new David_s_Armor(false));
+        legendary.add(new Soulblade(false));
+        legendary.add(new Oblivion(false));
     }
 }

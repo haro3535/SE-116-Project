@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Fixed bugs!">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Updates. Bug fixed">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Cometfell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654110658209</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Updates. Bug fixed">
+      <created>1654169328530</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654169328530</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +276,8 @@
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="Changes in Main.java" />
     <MESSAGE value="Fixed bugs!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs!" />
+    <MESSAGE value="Updates. Bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates. Bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
