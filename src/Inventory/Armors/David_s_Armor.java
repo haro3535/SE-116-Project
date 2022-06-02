@@ -11,7 +11,7 @@ public class David_s_Armor extends Clothes {
         super(isWore);
         setName("David's Armor");
         setValue("Legendary");
-        setWeight(10.0);
+        setWeight(5.0);
         setBlockPercent(random.nextInt(90,101));
 
     }

@@ -16,8 +16,8 @@ public class Nethersbane extends Shield {
         super(isWield);
         setName("Nethersbane");
         setValue("Ordinary");
-        setWeight(1.0);
-        setDamage(random.nextDouble(1,5)/20.0);
+        setWeight(0.5);
+        setDamage(Math.round(random.nextDouble(1,5)/20.0));
         setShield(true);
         setSword(false);
         setWand(false);

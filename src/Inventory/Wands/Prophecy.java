@@ -15,9 +15,9 @@ public class Prophecy extends Wand {
     public Prophecy(boolean isWield){
         super(isWield);
         setName("Prophecy");
-        setWeight(10.0);
+        setWeight(5.0);
         setValue("Legendary");
-        setDamage(random.nextDouble(4,16)/20.0);
+        setDamage(Math.round(random.nextDouble(4,16)/20.0));
         setHealingRate(random.nextDouble(14,17)/10.0);
         setWand(true);
         setShield(false);

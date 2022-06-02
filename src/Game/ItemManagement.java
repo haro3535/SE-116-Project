@@ -1,5 +1,6 @@
 package Game;
 
+import Inventory.Armors.David_s_Armor;
 import Inventory.Items;
 import Inventory.Shields.Nethersbane;
 import Inventory.Swords.Skycutter;
@@ -55,5 +56,6 @@ public class ItemManagement {
         // For Legendary
         legendary = new ArrayList<>();
         legendary.add(new Prophecy(false));
+        legendary.add(new David_s_Armor(false));
     }
 }

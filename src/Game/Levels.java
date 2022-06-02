@@ -495,18 +495,15 @@ public class Levels {
                 getDroppedItemArrayList().clear(); // Each level start the array must be empty!
             }
 
-            for (int i = 0; i < itemCreated; i++) {
-                int weaponOrCloth = random1.nextInt(2);
+            for (int i = 0; i <= itemCreated; i++) {
+                int dropChance = random1.nextInt(1,101);
 
-                if (weaponOrCloth == 0) {
-                    int dropChance = random1.nextInt(1,101);
-                    if (dropChance >= 1 && dropChance <= 85 ) {
-                        getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
-                    } else if (dropChance > 85 && dropChance <= 95) {
-                        getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
-                    }else
-                        getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
-                }
+                if (dropChance >= 1 && dropChance <= 85 ) {
+                    getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
+                } else if (dropChance > 85 && dropChance <= 95) {
+                    getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
+                }else
+                    getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("Enemy array is null!");
@@ -624,11 +621,13 @@ public class Levels {
             for (Items itm:
                     items) {
                 if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
-                    if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ) {
+                    if (((Weapons) itm).getName().toLowerCase().contains(which+" "+which1) ||
+                            ((Weapons) itm).getName().toLowerCase().contains(which+""+which1) ) {
                         index = items.indexOf(itm);
                     }
                 } else if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
-                    if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1)) {
+                    if (((Clothes)itm).getName().toLowerCase().contains(which+" "+which1) ||
+                            ((Clothes)itm).getName().toLowerCase().contains(which+""+which1)) {
                         index = items.indexOf(itm);
                     }
                 }
