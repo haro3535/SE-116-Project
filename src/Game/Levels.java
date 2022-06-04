@@ -198,7 +198,7 @@ public class Levels {
                                                 c.getItems()) {
                                             if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                                                 if (((Weapons) itm).isSword() && ((Weapons) itm).isWield()) {
-                                                    ItemActionManagement.SpecialAction(c,getEnemies(),"");
+                                                    ItemActionManagement.SpecialAction(c,getEnemies(),"",null);
                                                     isSword = true;
                                                 }
                                             }
@@ -245,10 +245,10 @@ public class Levels {
                                             System.out.println("Please enter appropriate command");
                                         }
                                         if (usingWeapon != null && usingWeapon.isShield() && character != null) {
-                                            ItemActionManagement.SpecialAction(ch,getEnemies(),splitInput[2]);
+                                            ItemActionManagement.SpecialAction(ch,getEnemies(),splitInput[2],null);
                                         }
                                         if (usingWeapon != null && usingWeapon.isWand() && character != null) {
-                                            ItemActionManagement.SpecialAction(ch,null,splitInput[2]);
+                                            ItemActionManagement.SpecialAction(ch,null,null,FindCharacterObject(getCharacters(),splitInput[2]));
                                             ItemActionManagement.Attack(character,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
                                             DeadEnemy(getEnemies(),splitInput[2]);
                                             EnemyAttack(getEnemies());

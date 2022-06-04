@@ -132,6 +132,13 @@ public abstract class Characters {
         }
     }
 
+    public void ChargeCalculator(){
+        int charge = getCharge() + 10;
+        if (charge <= 100) {
+            setCharge(charge);
+        }
+    }
+
     public void CheckCharge(){
         if (getCharge() == 100) {
             setUltiReady(true);

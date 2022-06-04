@@ -26,14 +26,14 @@ public class ItemActionManagement {
         }
     }
 
-    public static void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which){
+    public static void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters characters1){
 
         try {
             for (Items itm:
                     characters.getItems()) {
                 if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
                     if (((Weapons) itm).isWield()) {
-                        ((Weapons) itm).SpecialAction(characters,enemies,which);
+                        ((Weapons) itm).SpecialAction(characters,enemies,which,characters1);
                         return;
                     }
                     System.out.println("" + characters.getName() + " is not using any weapon!");

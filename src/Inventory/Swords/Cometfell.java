@@ -29,6 +29,7 @@ public class Cometfell extends Sword {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
                 System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getStrength()*getDamage() + " damage!");
+                whoIsAttacking.ChargeCalculator();
             }else
                 System.out.println("" + whoIsAttacking.getName() + " can't attack right now. He/She will stay out for " + whoIsAttacking.getHowMuchTurnWillStayOut() + " turn!");
         }catch (NullPointerException nullPointerException){
@@ -37,11 +38,12 @@ public class Cometfell extends Sword {
     }
 
     @Override
-    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which) {
+    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
         try {
             characters.setUnTouchable(true);
             characters.setHowMuchTurnWillStayOut(random.nextInt(1,3));
             System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
+            characters.setCharge(0);
         }catch (NullPointerException nullPointerException){
             System.out.println("One or more parameter is null!");
         }

@@ -5,6 +5,7 @@ import Inventory.Items;
 import Inventory.Shields.Nethersbane;
 import Inventory.Swords.*;
 import Inventory.Wands.Prophecy;
+import Inventory.Wands.Splinter;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,7 @@ public class ItemManagement {
         ordinary.add(new Nethersbane(false));
         ordinary.add(new Cometfell(false));
         ordinary.add(new Infamy(false));
+        ordinary.add(new Splinter(false));
         // For Rare
         rare = new ArrayList<>();
         rare.add(new Skycutter(false));

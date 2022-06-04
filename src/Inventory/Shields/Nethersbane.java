@@ -36,13 +36,14 @@ public class Nethersbane extends Shield {
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
             System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
+            whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");
         }
     }
 
     @Override
-    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which) {
+    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
 
         try {
             setStunTurn(random.nextInt(1,4));
