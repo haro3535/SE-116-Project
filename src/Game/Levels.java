@@ -113,19 +113,19 @@ public class Levels {
                 System.out.println("---------");
             }
             System.out.println("---------------------------");
-            int enemyCounter = 0;
+
             for (Enemy enm:
                     enemies) {
-                System.out.printf("%s%s%s%.1f%s%d%n","- Name: ",enm.getName(),"  - HP: ", enm.getHealthPoint(),"  - Number: ", enemyCounter);
+                System.out.printf("%s%s%s%.1f%n","- Name: ",enm.getName(),"  - HP: ", enm.getHealthPoint());
                 System.out.println("---------");
-                enemyCounter++;
+
             }
 
             System.out.println("----------------------------------------------------------------");
-            System.out.println("For One Word Commands    ->    Next , Exit , ...");
+            System.out.println("For One Word Commands    ->    Next , Exit , Show");
             System.out.println("For Two Word Commands    ->    (Character's Name) Info , (Character's Name) Inventory , (Character's Name) Ulti, ...");
             System.out.println("For Three Word Commands  ->    (Character's Name)  (function) (Enemy's Name) , (Character's Name) (function) (Character's Name),");
-            System.out.println("                         ->    (Character's Name)  (function) (Dropped Item's Item Number) , (Character's Name)  (function) (Character Item's Item Number)");
+            System.out.println("                         ->    (Character's Name)  (function) (Dropped Item's Full Name) , (Character's Name)  (function) (Character Full Name)");
             System.out.println("----------------------------------------------------------------");
             System.out.print("Enter: ");
 
@@ -171,6 +171,26 @@ public class Levels {
                                     System.out.println("Your score is " + Score);
                                     SaveScore();
                                     return;
+                                case "show":
+                                    System.out.println("---------------------------");
+                                    System.out.println("Characters and Enemies information");
+                                    System.out.println("---------------------------");
+                                    for (Characters ch:
+                                            characters) {
+                                        System.out.println("- Name: " + ch.getName());
+                                        System.out.println("- Charge:" + ch.getCharge() + "  - SpecialAction: " + ch.Ready());
+                                        System.out.printf("%s%.1f%n","- HP: ", ch.getHealthPoint());
+                                        System.out.println("---------");
+                                    }
+                                    System.out.println("---------------------------");
+
+                                    for (Enemy enm:
+                                            enemies) {
+                                        System.out.printf("%s%s%s%.1f%n","- Name: ",enm.getName(),"  - HP: ", enm.getHealthPoint());
+                                        System.out.println("---------");
+
+                                    }
+                                    break;
                                 default:
                                     System.out.println("Unaccepted command " + input);
                                     System.out.println("Please enter appropriate command!");
