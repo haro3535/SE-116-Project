@@ -7,6 +7,13 @@ public abstract class Wand extends Weapons{
         healingRate = 0.0;
     }
 
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Damage Multiplier: Intelligence x" + getDamage());
+        System.out.println("----------------------------");
+    }
+
     public double getHealingRate() {
         return healingRate;
     }

@@ -17,6 +17,7 @@ public class Nethersbane extends Shield {
         setName("Nethersbane");
         setValue("Ordinary");
         setWeight(0.5);
+        setDamage(Math.round(random.nextDouble(1,5))/20.0);
         setShield(true);
         setSword(false);
         setWand(false);
@@ -32,10 +33,10 @@ public class Nethersbane extends Shield {
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
-            setDamage(Math.round(random.nextDouble(1,5)/20.0));
+            setDamage(Math.round(random.nextDouble(1,5))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");
+            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getVitality()*getDamage()) + " damage!");
             whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");

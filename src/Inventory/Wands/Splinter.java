@@ -16,6 +16,7 @@ public class Splinter extends Wand {
         setName("Splinter");
         setWeight(5.0);
         setValue("Ordinary");
+        setDamage(Math.round(random.nextDouble(4,16))/20.0);
         setWand(true);
         setShield(false);
         setSword(false);
@@ -23,10 +24,10 @@ public class Splinter extends Wand {
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
-            setDamage(Math.round(random.nextDouble(4,16)/20.0));
+            setDamage(Math.round(random.nextDouble(4,16))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getIntelligence()*getDamage() + " damage!");
+            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getIntelligence()*getDamage()) + " damage!");
             whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");
@@ -39,11 +40,10 @@ public class Splinter extends Wand {
             setHealingRate(random.nextDouble(5,11)/10.0);
             if (whoWillGetHealing.getMaxHealthPoint() < whoWillGetHealing.getHealthPoint()+((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())) {
                 whoWillGetHealing.setHealthPoint(whoWillGetHealing.getMaxHealthPoint());
-                whoIsHealing.setCharge(0);
             }else {
                 whoWillGetHealing.setHealthPoint((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
-                whoIsHealing.setCharge(0);
             }
+            whoIsHealing.setCharge(0);
         }catch (NullPointerException nullPointerException){
             System.out.println("One or more parameter is null!");
         }

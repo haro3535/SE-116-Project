@@ -9,7 +9,8 @@ public interface Items {
      String displayClassName();
 
      String[] WeaponsClassNames = {
-             "Nethersbane","Skycutter","Prophecy",
+             "Nethersbane","Skycutter","Prophecy","Cometfell","Infamy","Oblivion",
+             "Soulblade","Splinter",
      } ;
 
      String[] ClothesClassNames = {

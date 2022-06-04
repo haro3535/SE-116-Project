@@ -13,6 +13,13 @@ public abstract class Shield extends Weapons{
 
     public abstract void CalculateBlockChance();
 
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Damage Multiplier: Vitality x" + getDamage());
+        System.out.println("----------------------------");
+    }
+
 
     public int getBlockChance() {
         return blockChance;

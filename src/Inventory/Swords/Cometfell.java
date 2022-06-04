@@ -16,6 +16,7 @@ public class Cometfell extends Sword {
         setName("Cometfell");
         setValue("Ordinary");
         setWeight(0.5);
+        setDamage(Math.round(random.nextDouble(1,5))/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);
         setShield(false);
@@ -28,7 +29,7 @@ public class Cometfell extends Sword {
             if (!whoIsAttacking.isUnTouchable()) {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
-                System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getStrength()*getDamage() + " damage!");
+                System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getStrength()*getDamage()) + " damage!");
                 whoIsAttacking.ChargeCalculator();
             }else
                 System.out.println("" + whoIsAttacking.getName() + " can't attack right now. He/She will stay out for " + whoIsAttacking.getHowMuchTurnWillStayOut() + " turn!");

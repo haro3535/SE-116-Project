@@ -157,10 +157,10 @@ public abstract class Characters {
         System.out.println("************************");
         System.out.println("Name: " + getName());
         System.out.println("Strength: " + Math.round(getStrength()));
-        System.out.println("Vitality: " + Math.round(getVitality()));
-        System.out.println("Intelligence: " + Math.round(getIntelligence()));
+        System.out.println("Vitality: " + Math.round(getVitality()) + "          SpecialAction: " + Ready());
+        System.out.println("Intelligence: " + Math.round(getIntelligence()) + "          Charge: " + getCharge());
+        System.out.println("Charge: " + getCharge());
         System.out.printf("%s%.1f%n","HP: ", getHealthPoint());
-       // System.out.println("Charge: " + getCharge());
     }
 
     public String getName() {

@@ -381,7 +381,7 @@ public class Instructive {
             String input8 = scanner.nextLine().toLowerCase();
             String[] strings8 = input8.split(" ");
             if (strings8[0].equals("fighter") && strings8[1].equals("ulti")) {
-                ItemActionManagement.SpecialAction(fighter,enemies,strings8[3]);
+                ItemActionManagement.SpecialAction(fighter,enemies,strings8[3],null);
                 loop7 = false;
             }
             else if (strings8[0].equals("exit")) {

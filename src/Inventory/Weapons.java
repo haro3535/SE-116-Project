@@ -33,8 +33,6 @@ public abstract class Weapons implements Items{
         System.out.println("Name: " + getName());
         System.out.println("Weight: " + getWeight());
         System.out.println("Value: " + getValue());
-        System.out.println("Damage Multiplier:  x" + getDamage());
-        System.out.println("----------------------------");
     }
 
     @Override
