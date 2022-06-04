@@ -31,7 +31,6 @@ public class Main {
                                 levels.Turn(scanner);
                                 if (Levels.isLevelUp()) {
                                     System.out.println("Next Level!");
-                                    Levels.ScoreCalculator((Levels.getLevelNumber() * 100));
                                     System.out.println("Level " + (Levels.getLevelNumber() - 1));
                                 }
                             }

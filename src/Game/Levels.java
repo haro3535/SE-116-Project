@@ -157,7 +157,7 @@ public class Levels {
                         case 1:
                             switch (splitInput[0]){
                                 case "next":
-                                    if (getEnemies().size() == 0 ) {
+                                    if (getEnemies().size() == 0) {
                                         setLevelUp(true);
                                         inputLoop = false;
                                         System.out.println("Moving to the next level!");
@@ -518,9 +518,9 @@ public class Levels {
                 if (dropChance >= 1 && dropChance <= 85 ) {
                     getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
                 } else if (dropChance > 85 && dropChance <= 95) {
-                    getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.ordinary.size())));
+                    getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.rare.size())));
                 }else
-                    getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.ordinary.size())));
+                    getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.legendary.size())));
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("Enemy array is null!");
