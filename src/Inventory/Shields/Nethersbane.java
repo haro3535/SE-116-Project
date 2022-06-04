@@ -17,16 +17,22 @@ public class Nethersbane extends Shield {
         setName("Nethersbane");
         setValue("Ordinary");
         setWeight(0.5);
-        setDamage(Math.round(random.nextDouble(1,5)/20.0));
         setShield(true);
         setSword(false);
         setWand(false);
+
+    }
+
+    @Override
+    public void CalculateBlockChance() {
         setBlockChance(random.nextInt(0,20));
     }
+
 
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
+            setDamage(Math.round(random.nextDouble(1,5)/20.0));
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
             System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getVitality()*getDamage() + " damage!");

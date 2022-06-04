@@ -1,5 +1,7 @@
 package Inventory;
 
+
+
 public abstract class Shield extends Weapons{
     private int blockChance;
     private int stunTurn;
@@ -8,6 +10,9 @@ public abstract class Shield extends Weapons{
         blockChance = 0;
         stunTurn = 0;
     }
+
+    public abstract void CalculateBlockChance();
+
 
     public int getBlockChance() {
         return blockChance;

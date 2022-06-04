@@ -17,7 +17,6 @@ public class Skycutter extends Sword {
         setName("Skycutter");
         setValue("Rare");
         setWeight(2.5);
-        setDamage(Math.round(random.nextDouble(5,10)/20.0)); // Each weapon has own damage value.
         setSword(true);
         setWand(false);
         setShield(false);
@@ -26,6 +25,7 @@ public class Skycutter extends Sword {
     @Override
     public void Attack(Characters whoIsAttacking,Characters whoGetAttacked) {
         try {
+            setDamage(Math.round(random.nextDouble(5,10)/20.0)); // Each weapon has own damage value.
             if (!whoIsAttacking.isUnTouchable()) {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());

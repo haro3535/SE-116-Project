@@ -15,7 +15,6 @@ public class Infamy extends Sword {
         setName("Infamy");
         setValue("Ordinary");
         setWeight(0.5);
-        setDamage(Math.round(random.nextDouble(5,10)/20.0)); // Each weapon has own damage value.
         setSword(true);
         setWand(false);
         setShield(false);
@@ -24,6 +23,7 @@ public class Infamy extends Sword {
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
+            setDamage(Math.round(random.nextDouble(1,5)/20.0)); // Each weapon has own damage value.
             if (!whoIsAttacking.isUnTouchable()) {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());

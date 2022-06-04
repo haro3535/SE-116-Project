@@ -4,19 +4,18 @@ import Characters.Characters;
 import Characters.Enemy;
 import Inventory.Wand;
 
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Prophecy extends Wand {
+public class Splinter extends Wand {
 
     SecureRandom random = new SecureRandom();
 
-    public Prophecy(boolean isWield){
+    public Splinter(boolean isWield){
         super(isWield);
-        setName("Prophecy");
+        setName("Splinter");
         setWeight(5.0);
-        setValue("Legendary");
+        setValue("Ordinary");
         setWand(true);
         setShield(false);
         setSword(false);
@@ -24,7 +23,7 @@ public class Prophecy extends Wand {
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
-            setDamage(Math.round(random.nextDouble(9,16)/20.0));
+            setDamage(Math.round(random.nextDouble(4,16)/20.0));
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
             System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getIntelligence()*getDamage() + " damage!");
@@ -36,7 +35,7 @@ public class Prophecy extends Wand {
     @Override
     public void SpecialAction(Characters whoWillGetHealing, ArrayList<Enemy> enemies, String which) {
         try {
-            setHealingRate(random.nextDouble(14,17)/10.0);
+            setHealingRate(random.nextDouble(5,11)/10.0);
             if (whoWillGetHealing.getMaxHealthPoint() < whoWillGetHealing.getHealthPoint()+((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())) {
                 whoWillGetHealing.setHealthPoint(whoWillGetHealing.getMaxHealthPoint());
             }else {

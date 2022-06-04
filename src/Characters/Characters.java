@@ -80,6 +80,7 @@ public abstract class Characters {
 
         try {
             if (isWieldShield && !isWoreAnything) {
+                shield.CalculateBlockChance();
                 double damage = takenDamage*shield.getBlockChance();
                 if (damage > 0.0) {
                     setHealthPoint(getHealthPoint()-takenDamage);
@@ -93,6 +94,7 @@ public abstract class Characters {
             }
 
             if (isWieldShield && isWoreAnything) {
+                shield.CalculateBlockChance();
                 double damage = takenDamage*shield.getBlockChance();
                 if (damage > 0.0) {
                     setHealthPoint(
