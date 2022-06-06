@@ -7,16 +7,16 @@ import Inventory.Sword;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Soulblade extends Sword {
+public class Slayer extends Sword {
 
     SecureRandom random = new SecureRandom();
 
-    public Soulblade(boolean isWield) {
+    public Slayer(boolean isWield) {   //TODO: değerlerinde değişiklik yap
         super(isWield);
-        setName("Soulblade");
-        setValue("Legendary");
-        setWeight(5.0);
-        setDamage(Math.round(random.nextDouble(9,16))/20.0); // Each weapon has own damage value.
+        setName("Slayer");
+        setValue("Epic");
+        setWeight(3.5);
+        setDamage(Math.round(random.nextDouble(7,14))/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);
         setShield(false);
@@ -25,11 +25,11 @@ public class Soulblade extends Sword {
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
-            setDamage(Math.round(random.nextDouble(9,16))/20.0);
+            setDamage(Math.round(random.nextDouble(7,14))/20.0);
             if (!whoIsAttacking.isUnTouchable()) {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
-                System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getStrength()*getDamage()) + " damage!");
+                System.out.println("" + whoGetAttacked.getName() + " get " + whoIsAttacking.getStrength()*getDamage() + " damage!");
                 whoIsAttacking.ChargeCalculator();
             }else
                 System.out.println("" + whoIsAttacking.getName() + " can't attack right now. He/She will stay out for " + whoIsAttacking.getHowMuchTurnWillStayOut() + " turn!");
@@ -39,10 +39,10 @@ public class Soulblade extends Sword {
     }
 
     @Override
-    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
+    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which, Characters unNecessary) {
         try {
             characters.setUnTouchable(true);
-            characters.setHowMuchTurnWillStayOut(random.nextInt(3,6));
+            characters.setHowMuchTurnWillStayOut(random.nextInt(3,5));
             System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
             characters.setCharge(0);
         }catch (NullPointerException nullPointerException){

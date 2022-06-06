@@ -35,6 +35,9 @@ public abstract class Weapons implements Items{
         System.out.println("Value: " + getValue());
     }
 
+    public abstract void Attack(Characters whoIsAttacking, Characters whoGetAttacked);
+    public abstract void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which,Characters whoWillGetHealing);
+
     @Override
     public String displayName() {
         return getName();
@@ -55,8 +58,6 @@ public abstract class Weapons implements Items{
         return getClass().getName();
     }
 
-    public abstract void Attack(Characters whoIsAttacking, Characters whoGetAttacked);
-    public abstract void SpecialAction(Characters characters,ArrayList<Enemy> enemies,String which,Characters whoWillGetHealing);
 
     public String getValue() {
         return value;

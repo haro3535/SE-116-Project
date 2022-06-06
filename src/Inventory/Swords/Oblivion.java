@@ -42,7 +42,7 @@ public class Oblivion extends Sword {
     public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
         try {
             characters.setUnTouchable(true);
-            characters.setHowMuchTurnWillStayOut(random.nextInt(2,6));
+            characters.setHowMuchTurnWillStayOut(random.nextInt(3,6));
             System.out.println("" + characters.getName() + " will stay out for " + characters.getHowMuchTurnWillStayOut() + " turn!");
             characters.setCharge(0);
         }catch (NullPointerException nullPointerException){
