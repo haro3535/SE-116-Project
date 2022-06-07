@@ -15,7 +15,7 @@ public class Soulblade extends Sword {
         super(isWield);
         setName("Soulblade");
         setValue("Legendary");
-        setWeight(5.0);
+        setWeight(3.2);
         setDamage(Math.round(random.nextDouble(9,16))/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);

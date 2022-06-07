@@ -7,33 +7,29 @@ import Inventory.Shield;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Nethersbane extends Shield {
-
-
+public class Great_Shield extends Shield {
     SecureRandom random = new SecureRandom();
 
-    public Nethersbane(boolean isWield){
+    public Great_Shield(boolean isWield) {
         super(isWield);
-        setName("Nethersbane");
-        setValue("Ordinary");
-        setWeight(0.2);
-        setDamage(Math.round(random.nextDouble(1,5))/20.0);
+        setName("Great Shield");
+        setValue("Rare");
+        setWeight(0.8);
+        setDamage(Math.round(random.nextDouble(5,10))/20.0);
         setShield(true);
         setSword(false);
         setWand(false);
-
     }
 
     @Override
     public void CalculateBlockChance() {
-        setBlockChance(random.nextInt(0,20));
+        setBlockChance(random.nextInt(0,10));
     }
-
 
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
-            setDamage(Math.round(random.nextDouble(1,5))/20.0);
+            setDamage(Math.round(random.nextDouble(5,10))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
             System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getVitality()*getDamage()) + " damage!");
@@ -44,10 +40,9 @@ public class Nethersbane extends Shield {
     }
 
     @Override
-    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
-
+    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which, Characters whoWillGetHealing) {
         try {
-            setStunTurn(random.nextInt(1,4));
+            setStunTurn(random.nextInt(2,4));
 
             for (Enemy enm:
                     enemies) {
@@ -60,9 +55,5 @@ public class Nethersbane extends Shield {
         }catch (NullPointerException nullPointerException){
             System.out.println("One or more parameter is null!");
         }
-    }
-    @Override
-    public String displayClassName() {
-        return getClass().getName();
     }
 }

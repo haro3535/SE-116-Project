@@ -14,6 +14,6 @@ public interface Items {
      } ;
 
      String[] ClothesClassNames = {
-             "David_s_Armor",
+             "David_s_Armor","Broken_Armor","Great_Armor","Old_Armor",
      } ;
 }

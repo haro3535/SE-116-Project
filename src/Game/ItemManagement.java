@@ -1,9 +1,14 @@
 package Game;
 
-import Inventory.Armors.David_s_Armor;
+import Inventory.Armors.*;
 import Inventory.Items;
+import Inventory.Shields.Aegis;
+import Inventory.Shields.Great_Shield;
 import Inventory.Shields.Nethersbane;
+import Inventory.Shields.Vigilante;
 import Inventory.Swords.*;
+import Inventory.Wands.Crystal_Wand;
+import Inventory.Wands.Holy_Wand;
 import Inventory.Wands.Prophecy;
 import Inventory.Wands.Splinter;
 
@@ -47,6 +52,7 @@ public class ItemManagement {
     public static ArrayList<Items> ordinary;
     public static ArrayList<Items> rare;
     public static ArrayList<Items> legendary;
+    public static ArrayList<Items> epic;
     public static void CreateItem(){
         // For Ordinary
         ordinary = new ArrayList<>();
@@ -54,16 +60,27 @@ public class ItemManagement {
         ordinary.add(new Cometfell(false));
         ordinary.add(new Infamy(false));
         ordinary.add(new Splinter(false));
-        // For Epic
-        // TODO: Epic ayarlama yap
+        ordinary.add(new Broken_Armor(false));
+        ordinary.add(new Old_Armor(false));
+        ordinary.add(new Broken_Armor(false));
         // For Rare
         rare = new ArrayList<>();
         rare.add(new Skycutter(false));
+        rare.add(new Great_Armor(false));
+        rare.add(new Great_Shield(false));
+        rare.add(new Crystal_Wand(false));
+        // For Epic
+        epic = new ArrayList<>();
+        epic.add(new Slayer(false));
+        epic.add(new Kings_s_Armor(false));
+        epic.add(new Aegis(false));
+        epic.add(new Holy_Wand(false));
         // For Legendary
         legendary = new ArrayList<>();
         legendary.add(new Prophecy(false));
         legendary.add(new David_s_Armor(false));
         legendary.add(new Soulblade(false));
         legendary.add(new Oblivion(false));
+        legendary.add(new Vigilante(false));
     }
 }

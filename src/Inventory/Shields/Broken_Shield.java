@@ -1,33 +1,40 @@
-package Inventory.Wands;
+package Inventory.Shields;
 
 import Characters.Characters;
 import Characters.Enemy;
-import Inventory.Wand;
+import Inventory.Shield;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class Splinter extends Wand {
+public class Broken_Shield extends Shield {
 
     SecureRandom random = new SecureRandom();
 
-    public Splinter(boolean isWield){
+    public Broken_Shield(boolean isWield) {
         super(isWield);
-        setName("Splinter");
+        setName("Broken Shield");
         setValue("Ordinary");
         setWeight(0.2);
         setDamage(Math.round(random.nextDouble(1,5))/20.0);
-        setWand(true);
-        setShield(false);
+        setShield(true);
         setSword(false);
+        setWand(false);
     }
+
+    @Override
+    public void CalculateBlockChance() {
+        setBlockChance(random.nextInt(0,20));
+    }
+
+
     @Override
     public void Attack(Characters whoIsAttacking, Characters whoGetAttacked) {
         try {
             setDamage(Math.round(random.nextDouble(1,5))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
-            whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getIntelligence()*getDamage()) + " damage!");
+            whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
+            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getVitality()*getDamage()) + " damage!");
             whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");
@@ -35,20 +42,23 @@ public class Splinter extends Wand {
     }
 
     @Override
-    public void SpecialAction(Characters whoIsHealing, ArrayList<Enemy> enemies, String which,Characters whoWillGetHealing) {
+    public void SpecialAction(Characters characters, ArrayList<Enemy> enemies, String which,Characters unNecessary) {
+
         try {
-            setHealingRate(random.nextDouble(5,11)/10.0);
-            if (whoWillGetHealing.getMaxHealthPoint() < whoWillGetHealing.getHealthPoint()+((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())) {
-                whoWillGetHealing.setHealthPoint(whoWillGetHealing.getMaxHealthPoint());
-            }else {
-                whoWillGetHealing.setHealthPoint((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
+            setStunTurn(random.nextInt(1,4));
+
+            for (Enemy enm:
+                    enemies) {
+                if (enm.getName().toLowerCase().contains(which)) {
+                    enm.setStunned(true);
+                    enm.setHowManyTurns(getStunTurn());
+                    System.out.println("" + enm.getName() + " stunned for " + getStunTurn() + " turn!");
+                }
             }
-            whoIsHealing.setCharge(0);
         }catch (NullPointerException nullPointerException){
             System.out.println("One or more parameter is null!");
         }
     }
-
     @Override
     public String displayClassName() {
         return getClass().getName();

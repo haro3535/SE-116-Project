@@ -11,11 +11,11 @@ public class Slayer extends Sword {
 
     SecureRandom random = new SecureRandom();
 
-    public Slayer(boolean isWield) {   //TODO: değerlerinde değişiklik yap
+    public Slayer(boolean isWield) {
         super(isWield);
         setName("Slayer");
         setValue("Epic");
-        setWeight(3.5);
+        setWeight(1.6);
         setDamage(Math.round(random.nextDouble(7,14))/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);

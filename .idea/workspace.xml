@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Some changes on Swords and new Sword added.">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="ItemManagement.java and Items.java updated">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Armors/Broken_Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Armors/Great_Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Armors/Kings_s_Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Armors/Old_Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Aegis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Broken_Shield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Great_Shield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Shields/Vigilante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Wands/Crystal_Wand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Wands/Holy_Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Armors/David_s_Armor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Shields/Nethersbane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Cometfell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Cometfell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Infamy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Infamy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Skycutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Slayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Slayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Splinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Splinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/cannon" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -176,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654526277818</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="ItemManagement.java and Items.java updated">
+      <created>1654626592654</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1654626592654</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,7 +246,8 @@
     <MESSAGE value="Show action added to the Levels.java" />
     <MESSAGE value="bug fixed at Levels.DroppedItemCreator method." />
     <MESSAGE value="Some changes on Swords and new Sword added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some changes on Swords and new Sword added." />
+    <MESSAGE value="ItemManagement.java and Items.java updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ItemManagement.java and Items.java updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

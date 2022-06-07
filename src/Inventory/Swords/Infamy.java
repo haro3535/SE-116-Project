@@ -14,7 +14,7 @@ public class Infamy extends Sword {
         super(isWield);
         setName("Infamy");
         setValue("Ordinary");
-        setWeight(0.5);
+        setWeight(0.2);
         setDamage(Math.round(random.nextDouble(1,5))/20.0); // Each weapon has own damage value.
         setSword(true);
         setWand(false);

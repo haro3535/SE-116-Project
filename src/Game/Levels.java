@@ -350,15 +350,15 @@ public class Levels {
 
             boolean isInStun = true;
             if (!enemies1.get(enemyNumber).isStunned()) {
-                if (getTank().getHealthPoint() > 0.0) {
+                if (getTank().getHealthPoint() > 0.0 && !getTank().isUnTouchable()) {
                     ItemActionManagement.Attack(enemies1.get(enemyNumber),getTank());
                     isInStun = false;
                 }else {
                     int ran = random1.nextInt(2);
-                    if (ran == 0 && getFighter().getHealthPoint() > 0.0){
+                    if (ran == 0 && getFighter().getHealthPoint() > 0.0 && !getFighter().isUnTouchable()){
                         ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
                         isInStun = false;
-                    }else if (getHealer().getHealthPoint() > 0.0) {
+                    }else if (getHealer().getHealthPoint() > 0.0 && !getHealer().isUnTouchable()) {
                         ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
                         isInStun = false;
                     }else System.out.println("All Characters Were Dead!");
@@ -515,10 +515,12 @@ public class Levels {
             for (int i = 0; i <= itemCreated; i++) {
                 int dropChance = random1.nextInt(1,101);
 
-                if (dropChance >= 1 && dropChance <= 85 ) {
+                if (dropChance >= 1 && dropChance <= 70 ) {
                     getDroppedItemArrayList().add(ItemManagement.ordinary.get(random1.nextInt(ItemManagement.ordinary.size())));
-                } else if (dropChance > 85 && dropChance <= 95) {
+                } else if (dropChance > 70 && dropChance <= 85) {
                     getDroppedItemArrayList().add(ItemManagement.rare.get(random1.nextInt(ItemManagement.rare.size())));
+                } else if (dropChance > 85 && dropChance <= 95) {
+                    getDroppedItemArrayList().add(ItemManagement.epic.get(random1.nextInt(ItemManagement.epic.size())));
                 }else
                     getDroppedItemArrayList().add(ItemManagement.legendary.get(random1.nextInt(ItemManagement.legendary.size())));
             }
