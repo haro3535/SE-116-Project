@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="bug fixed at Levels.DroppedItemCreator method.">
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Slayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2022_13_22_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Some changes on Swords and new Sword added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654359596452</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Some changes on Swords and new Sword added.">
+      <created>1654526277817</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654526277818</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +216,8 @@
     <MESSAGE value="printCharacterInfo updated. setDamage added to Weapons Attack methods. Items.WeaponsClassNames updated. Try catch added to turn method. DeadAllies updated. Some Find methods updated. printInfo added to Shield.java Sword.java and Wand.java." />
     <MESSAGE value="Show action added to the Levels.java" />
     <MESSAGE value="bug fixed at Levels.DroppedItemCreator method." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixed at Levels.DroppedItemCreator method." />
+    <MESSAGE value="Some changes on Swords and new Sword added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes on Swords and new Sword added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

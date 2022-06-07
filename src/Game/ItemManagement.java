@@ -54,6 +54,8 @@ public class ItemManagement {
         ordinary.add(new Cometfell(false));
         ordinary.add(new Infamy(false));
         ordinary.add(new Splinter(false));
+        // For Epic
+        // TODO: Epic ayarlama yap
         // For Rare
         rare = new ArrayList<>();
         rare.add(new Skycutter(false));

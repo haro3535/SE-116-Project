@@ -10,7 +10,7 @@ public interface Items {
 
      String[] WeaponsClassNames = {
              "Nethersbane","Skycutter","Prophecy","Cometfell","Infamy","Oblivion",
-             "Soulblade","Splinter",
+             "Soulblade","Splinter","Slayer",
      } ;
 
      String[] ClothesClassNames = {
