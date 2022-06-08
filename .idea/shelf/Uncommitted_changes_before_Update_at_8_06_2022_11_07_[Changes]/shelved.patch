@@ -1,0 +1,287 @@
+Index: .idea/runConfigurations.xml
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/.idea/runConfigurations.xml	(revision 1e41c0ae43565737afd05da684939eed6a196ac7)
++++ /dev/null	(revision 1e41c0ae43565737afd05da684939eed6a196ac7)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: Scores.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>h - 912\r\nharun - 907\r\nharuuun - 1\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Scores.txt b/Scores.txt
+--- a/Scores.txt	(revision 1e41c0ae43565737afd05da684939eed6a196ac7)
++++ b/Scores.txt	(date 1654595025865)
+@@ -1,3 +1,6 @@
++haro - 0
++harun - 507
++p - 201
+ h - 912
+ harun - 907
+ haruuun - 1
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9e70d6b4-1f8e-4eb8-8729-63650cfc247c\" name=\"Changes\" comment=\"bug fixed at Levels.DroppedItemCreator method.\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Inventory/Swords/Slayer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2022_13_22_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Inventory/Weapons.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Inventory/Weapons.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"29f0zCV7GnrSFjmyiKV3q2u3scB\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Game.Main\" />\r\n      <module name=\"Last_Version\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Game.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"deneme\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Game.deneme\" />\r\n      <module name=\"Last_Version\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Game.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.deneme\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9e70d6b4-1f8e-4eb8-8729-63650cfc247c\" name=\"Changes\" comment=\"\" />\r\n      <created>1653489094267</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1653489094267</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Items attack finished and characters health point and health point calculator finished!!\">\r\n      <created>1653500892650</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653500892650</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Items attack finished and characters health point and health point calculator finished!!\">\r\n      <created>1653503948963</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653503948963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created.\">\r\n      <created>1653579787907</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653579787908</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created.\">\r\n      <created>1653585931947</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653585931947</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Fixed the bug.\">\r\n      <created>1653720480171</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653720480171</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Attack actions updated. Shield's Special Action added.\">\r\n      <created>1653725676804</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653725676804</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Two string array and one Class created.&#10;displayDroppedItemList method created. RoundEndHealing method added. EnemyAttack method added. Turn method added.HealthPointCalculator updated.\">\r\n      <created>1653732113065</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653732113066</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Added some new methods\">\r\n      <created>1653745578765</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653745578765</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Weapons updated. New wand added.\">\r\n      <created>1654344493524</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654344493524</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Weapons updated. Some bugs fixed.\">\r\n      <created>1654346900208</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654346900208</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"printCharacterInfo updated. setDamage added to Weapons Attack methods. Items.WeaponsClassNames updated. Try catch added to turn method. DeadAllies updated. Some Find methods updated. printInfo added to Shield.java Sword.java and Wand.java.\">\r\n      <created>1654357930188</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654357930188</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Show action added to the Levels.java\">\r\n      <created>1654358717684</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654358717684</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"bug fixed at Levels.DroppedItemCreator method.\">\r\n      <created>1654359596452</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654359596452</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Items attack finished and characters health point and health point calculator finished!!\" />\r\n    <MESSAGE value=\"Some items have been defined.&#10;Main and gameplay classes have been created.Health calculations created.Attack actions created.\" />\r\n    <MESSAGE value=\"Shield, Sword and Wand classes created.&#10;Main and gameplay classes have been developed.Health calculations developed.Level class created.\" />\r\n    <MESSAGE value=\"Fixed the bug.\" />\r\n    <MESSAGE value=\"Attack actions updated. Shield's Special Action added.\" />\r\n    <MESSAGE value=\"Two string array and one Class created.&#10;displayDroppedItemList method created. RoundEndHealing method added. EnemyAttack method added. Turn method added.HealthPointCalculator updated.\" />\r\n    <MESSAGE value=\"Added some new methods\" />\r\n    <MESSAGE value=\"Weapons updated. New wand added.\" />\r\n    <MESSAGE value=\"Weapons updated. Some bugs fixed.\" />\r\n    <MESSAGE value=\"printCharacterInfo updated. setDamage added to Weapons Attack methods. Items.WeaponsClassNames updated. Try catch added to turn method. DeadAllies updated. Some Find methods updated. printInfo added to Shield.java Sword.java and Wand.java.\" />\r\n    <MESSAGE value=\"Show action added to the Levels.java\" />\r\n    <MESSAGE value=\"bug fixed at Levels.DroppedItemCreator method.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"bug fixed at Levels.DroppedItemCreator method.\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>\r\n          <line>50</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>\r\n          <line>31</line>\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>\r\n          <line>387</line>\r\n          <option name=\"timeStamp\" value=\"8\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1e41c0ae43565737afd05da684939eed6a196ac7)
++++ b/.idea/workspace.xml	(date 1654595195664)
+@@ -1,13 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="bug fixed at Levels.DroppedItemCreator method.">
+-      <change afterPath="$PROJECT_DIR$/src/Inventory/Swords/Slayer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2022_13_22_[Changes]/shelved.patch" beforeDir="false" />
++    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Some new swords added">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Oblivion.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Swords/Soulblade.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Inventory/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Weapons.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -137,42 +134,112 @@
+       <option name="project" value="LOCAL" />
+       <updated>1653745578765</updated>
+     </task>
+-    <task id="LOCAL-00009" summary="Weapons updated. New wand added.">
+-      <created>1654344493524</created>
++    <task id="LOCAL-00009" summary="improved turn method">
++      <created>1653824638131</created>
+       <option name="number" value="00009" />
+       <option name="presentableId" value="LOCAL-00009" />
+       <option name="project" value="LOCAL" />
+-      <updated>1654344493524</updated>
++      <updated>1653824638131</updated>
+     </task>
+-    <task id="LOCAL-00010" summary="Weapons updated. Some bugs fixed.">
+-      <created>1654346900208</created>
++    <task id="LOCAL-00010" summary="improved turn method">
++      <created>1653906672047</created>
+       <option name="number" value="00010" />
+       <option name="presentableId" value="LOCAL-00010" />
+       <option name="project" value="LOCAL" />
+-      <updated>1654346900208</updated>
++      <updated>1653906672047</updated>
+     </task>
+-    <task id="LOCAL-00011" summary="printCharacterInfo updated. setDamage added to Weapons Attack methods. Items.WeaponsClassNames updated. Try catch added to turn method. DeadAllies updated. Some Find methods updated. printInfo added to Shield.java Sword.java and Wand.java.">
+-      <created>1654357930188</created>
++    <task id="LOCAL-00011" summary="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added">
++      <created>1653912225674</created>
+       <option name="number" value="00011" />
+       <option name="presentableId" value="LOCAL-00011" />
+       <option name="project" value="LOCAL" />
+-      <updated>1654357930188</updated>
++      <updated>1653912225674</updated>
+     </task>
+-    <task id="LOCAL-00012" summary="Show action added to the Levels.java">
+-      <created>1654358717684</created>
++    <task id="LOCAL-00012" summary="workspace.xml again!!!!!">
++      <created>1653912261392</created>
+       <option name="number" value="00012" />
+       <option name="presentableId" value="LOCAL-00012" />
+       <option name="project" value="LOCAL" />
+-      <updated>1654358717684</updated>
++      <updated>1653912261392</updated>
+     </task>
+-    <task id="LOCAL-00013" summary="bug fixed at Levels.DroppedItemCreator method.">
+-      <created>1654359596452</created>
++    <task id="LOCAL-00013" summary="new method and arrays added to ItemManagement.java. Levels.java and  it's DroppedItemCreator method updated&#10;workspace.xml again!!!!!!!!!!!!!!">
++      <created>1653913483411</created>
+       <option name="number" value="00013" />
+       <option name="presentableId" value="LOCAL-00013" />
+       <option name="project" value="LOCAL" />
+-      <updated>1654359596452</updated>
++      <updated>1653913483411</updated>
++    </task>
++    <task id="LOCAL-00014" summary="&#10;workspace.xml again!!!!!!!!!!!!!!">
++      <created>1654007713496</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1654007713496</updated>
++    </task>
++    <task id="LOCAL-00015" summary="&#10;runConfigurations.xml">
++      <created>1654007746506</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1654007746506</updated>
++    </task>
++    <task id="LOCAL-00016" summary="In these update I added almost every exception for methods. &#10;And some updates. &#10;workspace.xml again!">
++      <created>1654020118152</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1654020118152</updated>
++    </task>
++    <task id="LOCAL-00017" summary="Bug fixed">
++      <created>1654020433074</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1654020433074</updated>
++    </task>
++    <task id="LOCAL-00018" summary="Added exceptions to Levels.java">
++      <created>1654109313015</created>
++      <option name="number" value="00018" />
++      <option name="presentableId" value="LOCAL-00018" />
++      <option name="project" value="LOCAL" />
++      <updated>1654109313015</updated>
++    </task>
++    <task id="LOCAL-00019" summary="workspace.xml">
++      <created>1654109451094</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1654109451094</updated>
++    </task>
++    <task id="LOCAL-00020" summary="Changes in Main.java">
++      <created>1654109518032</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1654109518032</updated>
++    </task>
++    <task id="LOCAL-00021" summary="Fixed bugs!">
++      <created>1654109975979</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1654109975979</updated>
++    </task>
++    <task id="LOCAL-00022" summary="Fixed bugs!">
++      <created>1654110658209</created>
++      <option name="number" value="00022" />
++      <option name="presentableId" value="LOCAL-00022" />
++      <option name="project" value="LOCAL" />
++      <updated>1654110658209</updated>
++    </task>
++    <task id="LOCAL-00023" summary="Updates. Bug fixed">
++      <created>1654169328530</created>
++      <option name="number" value="00023" />
++      <option name="presentableId" value="LOCAL-00023" />
++      <option name="project" value="LOCAL" />
++      <updated>1654169328530</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <option name="localTasksCounter" value="24" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -180,24 +247,11 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State>
+-              <option name="FILTERS">
+-                <map>
+-                  <entry key="branch">
+-                    <value>
+-                      <list>
+-                        <option value="origin/master" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                </map>
+-              </option>
+-            </State>
++            <State />
+           </value>
+         </entry>
+       </map>
+     </option>
+-    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Items attack finished and characters health point and health point calculator finished!!" />
+@@ -207,30 +261,56 @@
+     <MESSAGE value="Attack actions updated. Shield's Special Action added." />
+     <MESSAGE value="Two string array and one Class created.&#10;displayDroppedItemList method created. RoundEndHealing method added. EnemyAttack method added. Turn method added.HealthPointCalculator updated." />
+     <MESSAGE value="Added some new methods" />
+-    <MESSAGE value="Weapons updated. New wand added." />
+-    <MESSAGE value="Weapons updated. Some bugs fixed." />
+-    <MESSAGE value="printCharacterInfo updated. setDamage added to Weapons Attack methods. Items.WeaponsClassNames updated. Try catch added to turn method. DeadAllies updated. Some Find methods updated. printInfo added to Shield.java Sword.java and Wand.java." />
+-    <MESSAGE value="Show action added to the Levels.java" />
+-    <MESSAGE value="bug fixed at Levels.DroppedItemCreator method." />
+-    <option name="LAST_COMMIT_MESSAGE" value="bug fixed at Levels.DroppedItemCreator method." />
++    <MESSAGE value="improved turn method" />
++    <MESSAGE value="Levels.java updated.&#10;Weapon added character's ınventory for the beginning.&#10;Some exception added.&#10;Score.txt added" />
++    <MESSAGE value="workspace.xml again!!!!!" />
++    <MESSAGE value="new method and arrays added to ItemManagement.java. Levels.java and  it's DroppedItemCreator method updated&#10;workspace.xml again!!!!!!!!!!!!!!" />
++    <MESSAGE value="&#10;workspace.xml again!!!!!!!!!!!!!!" />
++    <MESSAGE value="&#10;runConfigurations.xml" />
++    <MESSAGE value="In these update I added almost every exception for methods. &#10;And some updates. &#10;workspace.xml again!" />
++    <MESSAGE value="Bug fixed" />
++    <MESSAGE value="Added exceptions to Levels.java" />
++    <MESSAGE value="workspace.xml" />
++    <MESSAGE value="Changes in Main.java" />
++    <MESSAGE value="Fixed bugs!" />
++    <MESSAGE value="Updates. Bug fixed" />
++    <option name="LAST_COMMIT_MESSAGE" value="Updates. Bug fixed" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
+-          <line>50</line>
+-          <option name="timeStamp" value="1" />
++          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
++          <line>89</line>
++          <option name="timeStamp" value="6" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
+-          <line>31</line>
+-          <option name="timeStamp" value="3" />
++          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
++          <line>308</line>
++          <option name="timeStamp" value="7" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
+-          <line>387</line>
++          <line>296</line>
+           <option name="timeStamp" value="8" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-method">
++          <url>file://$PROJECT_DIR$/src/Characters/Tank.java</url>
++          <line>29</line>
++          <properties class="Characters.Tank" method="Examine">
++            <option name="EMULATED" value="true" />
++            <option name="WATCH_EXIT" value="false" />
++          </properties>
++          <option name="timeStamp" value="9" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-method">
++          <url>file://$PROJECT_DIR$/src/Characters/Tank.java</url>
++          <line>49</line>
++          <properties class="Characters.Tank" method="Pick">
++            <option name="EMULATED" value="true" />
++            <option name="WATCH_EXIT" value="false" />
++          </properties>
++          <option name="timeStamp" value="10" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
