@@ -72,7 +72,7 @@ public class ItemManagement {
         // For Epic
         epic = new ArrayList<>();
         epic.add(new Slayer(false));
-        epic.add(new Kings_s_Armor(false));
+        epic.add(new Kings_Armor(false));
         epic.add(new Aegis(false));
         epic.add(new Holy_Wand(false));
         // For Legendary

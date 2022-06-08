@@ -28,7 +28,6 @@ public class Infamy extends Sword {
             if (!whoIsAttacking.isUnTouchable()) {
                 System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
                 whoGetAttacked.HealthPointCalculator(whoIsAttacking.getStrength()*getDamage());
-                System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getStrength()*getDamage()) + " damage!");
                 whoIsAttacking.ChargeCalculator();
             }else
                 System.out.println("" + whoIsAttacking.getName() + " can't attack right now. He/She will stay out for " + whoIsAttacking.getHowMuchTurnWillStayOut() + " turn!");

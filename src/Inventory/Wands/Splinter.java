@@ -27,7 +27,6 @@ public class Splinter extends Wand {
             setDamage(Math.round(random.nextDouble(1,5))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getIntelligence()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getIntelligence()*getDamage()) + " damage!");
             whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");

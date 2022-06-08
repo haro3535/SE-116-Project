@@ -4,10 +4,10 @@ import Inventory.Clothes;
 
 import java.security.SecureRandom;
 
-public class Kings_s_Armor extends Clothes {
+public class Kings_Armor extends Clothes {
     SecureRandom random = new SecureRandom();
 
-    public Kings_s_Armor(boolean isWore) {
+    public Kings_Armor(boolean isWore) {
         super(isWore);
         setName("King's Armor");
         setValue("Epic");

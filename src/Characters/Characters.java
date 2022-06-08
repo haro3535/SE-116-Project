@@ -84,6 +84,8 @@ public abstract class Characters {
                 double damage = takenDamage*shield.getBlockChance();
                 if (damage > 0.0) {
                     setHealthPoint(getHealthPoint()-takenDamage);
+                    System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",takenDamage, " damage!");
+                    ChargeCalculator();
                 }else System.out.println("Blocked!");
             }
 
@@ -91,6 +93,8 @@ public abstract class Characters {
                 setHealthPoint(
                         getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
                 );
+                ChargeCalculator();
+                System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
             }
 
             if (isWieldShield && isWoreAnything) {
@@ -100,12 +104,16 @@ public abstract class Characters {
                     setHealthPoint(
                             getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
                     );
+                    ChargeCalculator();
+                    System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
                 }else System.out.println("Blocked!");
 
             }
 
             if (!isWieldShield && !isWoreAnything){
                 setHealthPoint(getHealthPoint()-takenDamage);
+                ChargeCalculator();
+                System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",takenDamage, " damage!");
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("HealthPointCalculator has a problem about object Clothe or object Shield!");
@@ -133,7 +141,7 @@ public abstract class Characters {
     }
 
     public void ChargeCalculator(){
-        int charge = getCharge() + 10;
+        int charge = getCharge() + 20;
         if (charge <= 100) {
             setCharge(charge);
         }

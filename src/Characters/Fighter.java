@@ -1,6 +1,7 @@
 package Characters;
 
 
+import Game.ItemManagement;
 import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
@@ -87,15 +88,27 @@ public class Fighter extends Characters{
                 which1 = "";
             }
 
+            boolean check = false;
             for (Items itm:
                     items) {
-                if (((Clothes) itm).getName().toLowerCase().equals(which+""+which1) && !((Clothes) itm).isWore()) {
-                    ((Clothes) itm).setWore(true);
-                    System.out.println("" + getName() + " wore " + itm.displayName() + "!");
+                if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
+                    if (((Clothes) itm).getName().toLowerCase().equals(which+""+which1) ||
+                            ((Clothes) itm).getName().toLowerCase().equals(which+" "+which1) &&
+                                    !((Clothes) itm).isWore()) {
+                        ((Clothes) itm).setWore(true);
+                        System.out.println("" + getName() + " wore " + itm.displayName() + "!");
+                        check = true;
+                    }
+                    if (!((Clothes) itm).getName().toLowerCase().equals(which+""+which1) ||
+                            !((Clothes) itm).getName().toLowerCase().equals(which+" "+which1) &&
+                                    ((Clothes) itm).isWore()) {
+                        ((Clothes) itm).setWore(false);
+                        check = true;
+                    }
                 }
-                if (!((Clothes) itm).getName().toLowerCase().equals(which+""+which1) && ((Clothes) itm).isWore()) {
-                    ((Clothes) itm).setWore(false);
-                }
+            }
+            if (!check) {
+                throw new ClassCastException("Class type wrong!");
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("Item array is empty!");
@@ -108,15 +121,27 @@ public class Fighter extends Characters{
             if (which1 == null) {
                 which1 = "";
             }
+            boolean check = false;
             for (Items itm:
                     items) {
-                if (((Weapons) itm).getName().toLowerCase().equals(which+""+which1) && !((Weapons) itm).isWield()) {
-                    ((Weapons) itm).setWield(true);
-                    System.out.println("" + getName() + " wore " + itm.displayName() + "!");
+                if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
+                    if (((Weapons) itm).getName().toLowerCase().equals(which+""+which1) ||
+                            ((Weapons) itm).getName().toLowerCase().equals(which+" "+which1) &&
+                                    !((Weapons) itm).isWield()) {
+                        ((Weapons) itm).setWield(true);
+                        System.out.println("" + getName() + " wore " + itm.displayName() + "!");
+                        check = true;
+                    }
+                    if (!((Weapons) itm).getName().toLowerCase().equals(which+""+which1) ||
+                            !((Weapons) itm).getName().toLowerCase().equals(which+" "+which1) &&
+                                    ((Weapons) itm).isWield()) {
+                        ((Weapons) itm).setWield(false);
+                        check = true;
+                    }
                 }
-                if (!((Weapons) itm).getName().toLowerCase().equals(which+""+which1) && ((Weapons) itm).isWield()) {
-                    ((Weapons) itm).setWield(false);
-                }
+            }
+            if (!check) {
+                throw new ClassCastException("Class type wrong!");
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("Item array is empty!");

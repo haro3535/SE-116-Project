@@ -13,7 +13,6 @@ public class Main {
         while (loop){
 
             displayMenu();
-            try {
                 int chose = Integer.parseInt(scanner.nextLine());
 
                 switch (chose) {
@@ -37,18 +36,12 @@ public class Main {
                         }
                     }
                     case 2 -> ShowScoreboard();
-                    case 3 -> {
-                        Instructive instructive = new Instructive();
-                        instructive.Start();
-                    }
                     default -> {
                         System.out.println("Unaccepted value " + chose);
                         System.out.println("Try again!");
                     }
                 }
-            }catch (NumberFormatException nfe){
-                System.out.println("You must enter an appropriate input!");
-            }
+            
         }
     }
     public static boolean loop;
@@ -143,10 +136,9 @@ public class Main {
         System.out.println("---------------------------------");
         System.out.println("Play - ( Enter 1 )");
         System.out.println("Show Scoreboard ( Enter 2 )");
-        System.out.println("How to play ( Enter 3 )");
         System.out.println("Exit - ( Enter 0 )");
         System.out.println("-----");
-        System.out.println("-- Created by Harun Onur --");
+        System.out.println("-- Created by Harun Onur & Tarık Ali Dinçel--");
         System.out.println("---------------------------------");
         System.out.print("Enter: ");
     }

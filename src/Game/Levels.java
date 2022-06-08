@@ -152,7 +152,7 @@ public class Levels {
                         alignment++;
                     }
                 }
-                try {
+
                     switch (splitInput.length){
                         case 1:
                             switch (splitInput[0]){
@@ -255,7 +255,7 @@ public class Levels {
                                     break;
                                 case "ulti":
                                     for (Characters ch: getCharacters()) {
-                                        if (ch.getName().toLowerCase().contains(splitInput[0])) {
+                                        if (ch.getName().toLowerCase().contains(splitInput[0]) && ch.getCharge() == 100) {
 
                                             Weapons usingWeapon = FindWieldWeapon(ch);
                                             Characters character = FindCharacterObject(getCharacters(),splitInput[0]);
@@ -266,16 +266,13 @@ public class Levels {
                                             }
                                             if (usingWeapon != null && usingWeapon.isShield() && character != null) {
                                                 ItemActionManagement.SpecialAction(ch,getEnemies(),splitInput[2],null);
+                                                ch.setCharge(0);
                                             }
                                             if (usingWeapon != null && usingWeapon.isWand() && character != null) {
                                                 ItemActionManagement.SpecialAction(ch,null,null,FindCharacterObject(getCharacters(),splitInput[2]));
-                                                ItemActionManagement.Attack(character,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
-                                                DeadEnemy(getEnemies(),splitInput[2]);
-                                                EnemyAttack(getEnemies());
-                                                DeadAllies(getCharacters());
-                                                isAllEnemyWereDead(getEnemies());
+                                                ch.setCharge(0);
                                             }
-                                        }
+                                        }else System.out.println("Character couldn't found or the charge is not enough!");
                                     }
                                     break;
                                 case "pick":
@@ -331,9 +328,7 @@ public class Levels {
                         default:
                             System.out.println("Please enter appropriate command!");
                     }
-                }catch (RuntimeException runtimeException){
-                    System.out.println("Something went wrong!");
-                }
+
             }
         }
     }
@@ -354,14 +349,22 @@ public class Levels {
                     ItemActionManagement.Attack(enemies1.get(enemyNumber),getTank());
                     isInStun = false;
                 }else {
-                    int ran = random1.nextInt(2);
-                    if (ran == 0 && getFighter().getHealthPoint() > 0.0 && !getFighter().isUnTouchable()){
-                        ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
-                        isInStun = false;
-                    }else if (getHealer().getHealthPoint() > 0.0 && !getHealer().isUnTouchable()) {
-                        ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
-                        isInStun = false;
-                    }else System.out.println("All Characters Were Dead!");
+                    boolean loop = true;
+                    while (loop){
+                        int ran = random1.nextInt(2);
+                        if (ran == 0 && getFighter().getHealthPoint() > 0.0 && !getFighter().isUnTouchable()){
+                            ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
+                            isInStun = false;
+                            loop = false;
+                        }else if (getHealer().getHealthPoint() > 0.0 && !getHealer().isUnTouchable()) {
+                            ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
+                            isInStun = false;
+                            loop = false;
+                        } else if (getFighter().getHealthPoint() < 0.0 && getHealer().getHealthPoint() < 0.0) {
+                            System.out.println("All Characters Were Dead!");
+                            loop = false;
+                        }
+                    }
                 }
             }
             if (isInStun) {
@@ -557,7 +560,7 @@ public class Levels {
                     return characters.indexOf(ch);
                 }
             }
-            System.out.println("Character couldn't find!");
+            throw new IndexOutOfBoundsException("Character couldn't find!");
         }catch (NullPointerException nullPointerException){
             System.out.println("Character array is null!");
             System.out.println("Levels.FindCharacterIndex - 489");
@@ -607,7 +610,7 @@ public class Levels {
                     return enemies.indexOf(enm);
                 }
             }
-            System.out.println("Enemy couldn't find!");
+            throw new IndexOutOfBoundsException("Enemy couldn't find!");
 
         }catch (NullPointerException nullPointerException){
             System.out.println("Enemy array is null!");
@@ -654,8 +657,8 @@ public class Levels {
                     }
                 }
             }
-            System.out.println("Item couldn't found!");
 
+            throw new IndexOutOfBoundsException("Item couldn't found!");
         }catch (NullPointerException nullPointerException){
             System.out.println("Item couldn't found!");
             System.out.println("Check your command again!");

@@ -34,7 +34,6 @@ public class Broken_Shield extends Shield {
             setDamage(Math.round(random.nextDouble(1,5))/20.0);
             System.out.println("" + whoIsAttacking.getName() + " attacking to " + whoGetAttacked.getName());
             whoGetAttacked.HealthPointCalculator(whoIsAttacking.getVitality()*getDamage());
-            System.out.println("" + whoGetAttacked.getName() + " get " + Math.round(whoIsAttacking.getVitality()*getDamage()) + " damage!");
             whoIsAttacking.ChargeCalculator();
         }catch (NullPointerException nullPointerException){
             System.out.println("One or two of Character object is null!");
@@ -51,7 +50,7 @@ public class Broken_Shield extends Shield {
                     enemies) {
                 if (enm.getName().toLowerCase().contains(which)) {
                     enm.setStunned(true);
-                    enm.setHowManyTurns(getStunTurn());
+                    enm.setHowManyTurns(enm.getHowManyTurns() + getStunTurn());
                     System.out.println("" + enm.getName() + " stunned for " + getStunTurn() + " turn!");
                 }
             }
