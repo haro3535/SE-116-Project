@@ -58,7 +58,6 @@ public class ItemManagement {
         ordinary = new ArrayList<>();
         ordinary.add(new Nethersbane(false));
         ordinary.add(new Cometfell(false));
-        ordinary.add(new Infamy(false));
         ordinary.add(new Splinter(false));
         ordinary.add(new Broken_Armor(false));
         ordinary.add(new Old_Armor(false));

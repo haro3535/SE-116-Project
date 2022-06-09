@@ -39,9 +39,11 @@ public class Prophecy extends Wand {
         try {
             setHealingRate(random.nextDouble(14,17)/10.0);
             if (whoWillGetHealing.getMaxHealthPoint() < whoWillGetHealing.getHealthPoint()+((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())) {
+                System.out.println("" + whoIsHealing.getName() + " healed +" + (whoWillGetHealing.getMaxHealthPoint()-whoWillGetHealing.getHealthPoint()) + " hp" + whoWillGetHealing.getName());
                 whoWillGetHealing.setHealthPoint(whoWillGetHealing.getMaxHealthPoint());
             }else {
-                whoWillGetHealing.setHealthPoint((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
+                System.out.println("" + whoIsHealing.getName() + " healed +" + ((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate()) + " hp" + whoWillGetHealing.getName());
+                whoWillGetHealing.setHealthPoint(whoWillGetHealing.getHealthPoint()+(whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
             }
             whoIsHealing.setCharge(0);
         }catch (NullPointerException nullPointerException){

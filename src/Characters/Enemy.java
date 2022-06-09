@@ -11,11 +11,13 @@ public class Enemy extends Characters{
     private int howManyTurns;
     SecureRandom random = new SecureRandom();
 
+    public static double origin = 1;
+    public static double bound = 6;
     public Enemy(String name){
         super(name);
-        setIntelligence(random.nextDouble(1,6));
-        setStrength(random.nextDouble(1,6));
-        setVitality(random.nextDouble(1,6));
+        setIntelligence(random.nextDouble(origin,bound));
+        setStrength(random.nextDouble(origin,bound));
+        setVitality(random.nextDouble(origin,bound));
         setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
         setItems(new ArrayList<>());
         setStunned(false);
@@ -41,6 +43,7 @@ public class Enemy extends Characters{
     public void Wield(ArrayList<Items> items, String which, String which1) {
         System.out.println("Enemy don't have Wield action!");
     }
+
 
     public boolean isStunned() {
         return isStunned;

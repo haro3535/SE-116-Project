@@ -34,6 +34,9 @@ public class Fighter extends Characters{
     public void Examine(ArrayList<Items> dropped, String which, String which1) {
 
         try {
+            if (dropped == null) {
+                throw new NullPointerException("Dropped Item array is empty!");
+            }
             int index = Levels.FindItemIndex(dropped,which,which1);
 
             if (dropped.size() > 10) {
@@ -46,8 +49,8 @@ public class Fighter extends Characters{
                 System.out.println("" + dropped.get(index).displayName() + " examined by " + getName());
                 dropped.get(index).printInfo();
             }
-        }catch (NullPointerException nullPointerException){
-            System.out.println("Dropped Item array is empty!");
+        }catch (IndexOutOfBoundsException indexOutOfBoundsException){
+            System.out.println("Item couldn't find!");
         }
     }
     @Override
@@ -56,10 +59,10 @@ public class Fighter extends Characters{
         try {
             double limit = getStrength();
 
-            int index = Levels.FindItemIndex(droppedItems,which,which1);
-            if (index == -1) {
-                throw new ArrayIndexOutOfBoundsException("Item couldn't found!");
+            if (droppedItems == null) {
+                throw new NullPointerException("Dropped Item array is empty!");
             }
+            int index = Levels.FindItemIndex(droppedItems,which,which1);
 
             double sumWeight = droppedItems.get(index).displayWeight();
             for (Items items:
@@ -75,20 +78,22 @@ public class Fighter extends Characters{
                 System.out.println("" + getName() + " couldn't take " + droppedItems.get(index).displayName());
                 System.out.println("Inventory is full!");
             }
-        }catch (NullPointerException nullPointerException){
-            System.out.println("Dropped Item array is empty!");
+        }catch (IndexOutOfBoundsException Exception){
+            System.out.println("Item couldn't find!");
         }
     }
 
     @Override
     public void Wear(ArrayList<Items> items, String which, String which1) {
-
         try {
             if (which1 == null) {
                 which1 = "";
             }
 
-            boolean check = false;
+            if (items == null) {
+                throw new NullPointerException("Item array is null!");
+            }
+
             for (Items itm:
                     items) {
                 if (ItemManagement.ClassNameForClothes(itm.displayClassName())) {
@@ -97,21 +102,17 @@ public class Fighter extends Characters{
                                     !((Clothes) itm).isWore()) {
                         ((Clothes) itm).setWore(true);
                         System.out.println("" + getName() + " wore " + itm.displayName() + "!");
-                        check = true;
                     }
-                    if (!((Clothes) itm).getName().toLowerCase().equals(which+""+which1) ||
+                    if (!((Clothes) itm).getName().toLowerCase().equals(which+""+which1) &&
                             !((Clothes) itm).getName().toLowerCase().equals(which+" "+which1) &&
                                     ((Clothes) itm).isWore()) {
                         ((Clothes) itm).setWore(false);
-                        check = true;
+                        System.out.println("" + getName() + " took of " + itm.displayName() + "!");
                     }
                 }
             }
-            if (!check) {
-                throw new ClassCastException("Class type wrong!");
-            }
-        }catch (NullPointerException nullPointerException){
-            System.out.println("Item array is empty!");
+        }catch (ClassCastException classCastException){
+            System.out.println("Weapons cannot be worn!");
         }
     }
     @Override
@@ -121,7 +122,10 @@ public class Fighter extends Characters{
             if (which1 == null) {
                 which1 = "";
             }
-            boolean check = false;
+            if (items == null) {
+                throw new NullPointerException("Item array is null!");
+            }
+
             for (Items itm:
                     items) {
                 if (ItemManagement.ClassNameForWeapons(itm.displayClassName())) {
@@ -129,22 +133,18 @@ public class Fighter extends Characters{
                             ((Weapons) itm).getName().toLowerCase().equals(which+" "+which1) &&
                                     !((Weapons) itm).isWield()) {
                         ((Weapons) itm).setWield(true);
-                        System.out.println("" + getName() + " wore " + itm.displayName() + "!");
-                        check = true;
+                        System.out.println("" + getName() + " wield " + itm.displayName() + "!");
                     }
-                    if (!((Weapons) itm).getName().toLowerCase().equals(which+""+which1) ||
+                    if (!((Weapons) itm).getName().toLowerCase().equals(which+""+which1) &&
                             !((Weapons) itm).getName().toLowerCase().equals(which+" "+which1) &&
                                     ((Weapons) itm).isWield()) {
                         ((Weapons) itm).setWield(false);
-                        check = true;
+                        System.out.println("" + getName() + " left " + itm.displayName() + "!");
                     }
                 }
             }
-            if (!check) {
-                throw new ClassCastException("Class type wrong!");
-            }
-        }catch (NullPointerException nullPointerException){
-            System.out.println("Item array is empty!");
+        }catch (ClassCastException classCastException){
+            System.out.println("Clothes cannot be wield!");
         }
     }
 }

@@ -13,14 +13,14 @@ public class Main {
         while (loop){
 
             displayMenu();
-                int chose = Integer.parseInt(scanner.nextLine());
+                String chose = scanner.nextLine();
 
                 switch (chose) {
-                    case 0 -> {
+                    case "0" -> {
                         loop = false;
                         System.out.println("Game is closing...");
                     }
-                    case 1 -> {
+                    case "1" -> {
                         RegisterPlayer();
                         if (loop) {
                             Levels levels = new Levels();
@@ -35,13 +35,12 @@ public class Main {
                             }
                         }
                     }
-                    case 2 -> ShowScoreboard();
+                    case "2" -> ShowScoreboard();
                     default -> {
                         System.out.println("Unaccepted value " + chose);
                         System.out.println("Try again!");
                     }
                 }
-            
         }
     }
     public static boolean loop;

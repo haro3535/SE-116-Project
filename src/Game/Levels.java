@@ -8,8 +8,8 @@ import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Shields.Nethersbane;
 
-import Inventory.Swords.Skycutter;
-import Inventory.Wands.Prophecy;
+import Inventory.Swords.Cometfell;
+import Inventory.Wands.Splinter;
 import Inventory.Weapons;
 
 
@@ -76,13 +76,13 @@ public class Levels {
 
                     Enemy enemy = new Enemy("Enemy"+(i+1));
                     if (randomRatio < 80) {
-                        Items weaponEnemy = new Skycutter(true);
+                        Items weaponEnemy = new Cometfell(true);
                         enemy.getItems().add(weaponEnemy);
                     } else if (randomRatio < 90) {
                         Items weaponEnemy = new Nethersbane(true);
                         enemy.getItems().add(weaponEnemy);
                     }else {
-                        Items weaponEnemy = new Prophecy(true);
+                        Items weaponEnemy = new Splinter(true);
                         enemy.getItems().add(weaponEnemy);
                     }
                     enemies.add(enemy);
@@ -122,18 +122,18 @@ public class Levels {
             }
 
             System.out.println("----------------------------------------------------------------");
-            System.out.println("For One Word Commands    ->    Next , Exit , Show");
-            System.out.println("For Two Word Commands    ->    (Character's Name) Info , (Character's Name) Inventory , (Character's Name) Ulti, ...");
-            System.out.println("For Three Word Commands  ->    (Character's Name)  (function) (Enemy's Name) , (Character's Name) (function) (Character's Name),");
-            System.out.println("                         ->    (Character's Name)  (function) (Dropped Item's Full Name) , (Character's Name)  (function) (Character Full Name)");
+            System.out.println("For Only One Word Commands       ->    Next , Exit , Show");
+            System.out.println("For Only Two Word Commands       ->    (Character's Name) Info , (Character's Name) Inventory , (Character's Name) Ulti, ...");
+            System.out.println("For Only Three Word Commands     ->    (Character's Name)  Attack (Enemy's Name) , (Character's Name) Ulti (Character's Name),");
+            System.out.println("For Three and Four Word Commands ->    (Character's Name)  (Pick, Examine) (Dropped Item's Full Name) , (Character's Name)  (Wear, Wield) (Inventory Item's Full Name)");
             System.out.println("----------------------------------------------------------------");
-            System.out.print("Enter: ");
 
             boolean inputLoop = true;
             while (inputLoop){
                 StayOutManager(getCharacters());
                 StunManager(getEnemies());
 
+                System.out.print("Enter: ");
                 String input = scanner.nextLine().toLowerCase();
                 String[] splitInput1 = input.split(" ");  // For split input
 
@@ -160,6 +160,7 @@ public class Levels {
                                     if (getEnemies().size() == 0) {
                                         setLevelUp(true);
                                         inputLoop = false;
+                                        levelNumber++;
                                         System.out.println("Moving to the next level!");
                                         System.out.println("------------");
                                         continue;
@@ -239,40 +240,48 @@ public class Levels {
                         case 3:
                             switch (splitInput[1]){
                                 case "attack":
-                                    Characters characters1 = getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0]));
-                                    ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
-                                    DeadEnemy(getEnemies(),splitInput[2]);
-                                    EnemyAttack(getEnemies());
-                                    DeadAllies(getCharacters());
-                                    characters1.CheckCharge();
-                                    if (characters1.isUltiReady()) {
-                                        System.out.println("" + characters1.getName() + " SpecialAction: " + characters1.Ready());
-                                    }
-                                    if (getEnemies().size() == 0) {
-                                        displayDroppedItemList();
-                                        levelNumber++;
+                                    try {
+                                        if (getEnemies().size() > 0) {
+                                            Characters characters1 = getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0]));
+                                            ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
+                                            DeadEnemy(getEnemies(),splitInput[2]);
+                                            EnemyAttack(getEnemies());
+                                            DeadAllies(getCharacters());
+                                            isAllEnemyWereDead(getEnemies());
+                                            characters1.CheckCharge();
+                                            if (characters1.isUltiReady()) {
+                                                System.out.println("" + characters1.getName() + " SpecialAction: " + characters1.Ready());
+                                            }
+                                        }else System.out.println("All enemies were dead!");
+                                    }catch (IndexOutOfBoundsException | NullPointerException exception){
+                                        System.out.println("Character couldn't found!");
                                     }
                                     break;
                                 case "ulti":
-                                    for (Characters ch: getCharacters()) {
-                                        if (ch.getName().toLowerCase().contains(splitInput[0]) && ch.getCharge() == 100) {
+                                    try {
+                                        Characters character = FindCharacterObject(getCharacters(),splitInput[0]);
+                                        Characters enemy = FindEnemyObject(getEnemies(),splitInput[2]);
+                                        Weapons usingWeapon = FindWieldWeapon(character);
 
-                                            Weapons usingWeapon = FindWieldWeapon(ch);
-                                            Characters character = FindCharacterObject(getCharacters(),splitInput[0]);
-
-                                            if (usingWeapon != null && usingWeapon.isSword() && character != null) {
-                                                System.out.println("" + ch.getName() + " is using a sword your command must be 2 word!");
+                                        if (character != null && character.getCharge() == 100 && character.getHealthPoint() > 0.0) {
+                                            if (usingWeapon != null && usingWeapon.isSword()) {
+                                                System.out.println("" + character.getName() + " is using a sword your command must be 2 word!");
                                                 System.out.println("Please enter appropriate command");
                                             }
-                                            if (usingWeapon != null && usingWeapon.isShield() && character != null) {
-                                                ItemActionManagement.SpecialAction(ch,getEnemies(),splitInput[2],null);
-                                                ch.setCharge(0);
+                                            if (usingWeapon != null && usingWeapon.isShield() && getEnemies() != null && getEnemies().size() > 0) {
+                                                ItemActionManagement.SpecialAction(character,getEnemies(),splitInput[2],null);
+                                                ItemActionManagement.Attack(character,enemy);
+                                                DeadEnemy(getEnemies(),splitInput[2]);
+                                                isAllEnemyWereDead(getEnemies());
+                                                character.setCharge(0);
                                             }
-                                            if (usingWeapon != null && usingWeapon.isWand() && character != null) {
-                                                ItemActionManagement.SpecialAction(ch,null,null,FindCharacterObject(getCharacters(),splitInput[2]));
-                                                ch.setCharge(0);
+                                            if (usingWeapon != null && usingWeapon.isWand()) {
+                                                ItemActionManagement.SpecialAction(character,null,null,FindCharacterObject(getCharacters(),splitInput[2]));
+                                                character.setCharge(0);
                                             }
                                         }else System.out.println("Character couldn't found or the charge is not enough!");
+                                    }catch (NullPointerException nullPointerException){
+                                        System.out.println("Character couldn't find!");
                                     }
                                     break;
                                 case "pick":
@@ -335,7 +344,7 @@ public class Levels {
 
     SecureRandom random1 = new SecureRandom();
     public void EnemyAttack(ArrayList<Enemy> enemies1){
-
+               // TODO: Çözmen gerek sorunlar var burda!!
         try {
 
             if (enemies1.size() == 0) {
@@ -360,9 +369,12 @@ public class Levels {
                             ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
                             isInStun = false;
                             loop = false;
-                        } else if (getFighter().getHealthPoint() < 0.0 && getHealer().getHealthPoint() < 0.0) {
-                            System.out.println("All Characters Were Dead!");
+                        } else if (getFighter().getHealthPoint() < 0.0 && getHealer().getHealthPoint() > 0.0 && !getHealer().isUnTouchable()) {
+                            ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
                             loop = false;
+                        } else if (getFighter().getHealthPoint() > 0.0 && getHealer().getHealthPoint() < 0.0) {
+                            System.out.println("All Characters Were Dead!");
+
                         }
                     }
                 }
@@ -400,7 +412,6 @@ public class Levels {
         try {
             if (enemies.size() == 0) {
                 displayDroppedItemList();
-                levelNumber++;
             }
         }catch (NullPointerException nullPointerException){
             System.out.println("Enemy array is null!");
@@ -410,16 +421,23 @@ public class Levels {
 
     public void DeadAllies(ArrayList<Characters> characters){
         try {
+            Characters whoIsDead = null;
+
             for (Characters ch:
                     characters) {
                 if (ch.getHealthPoint() <= 0.0) {
                     System.out.println("" + ch.getName() + " were dead!");
-                    characters.remove(ch);
+                    whoIsDead = ch;
+
                 }
             }
+            if (whoIsDead != null) {
+                getCharacters().remove(whoIsDead);
+            }
+
         }catch (NullPointerException nullPointerException){
             System.out.println("Character array is null!");
-            System.out.println("DeadAllies - 454");
+            System.out.println("Levels.java - 419");
         }
     }
 
@@ -463,7 +481,10 @@ public class Levels {
                 ch.setStrength(ch.getStrength()*1.10);
                 ch.setIntelligence(ch.getIntelligence()*1.10);
                 ch.setVitality(ch.getVitality()*1.10);
+                ch.MaxHealthCalculator();
             }
+            Enemy.origin += 0.2;
+            Enemy.bound += 0.2;
         }catch (NullPointerException nullPointerException){
             System.out.println("Character array " + characters.toString() + " is empty!");
         }

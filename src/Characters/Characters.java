@@ -94,7 +94,7 @@ public abstract class Characters {
                         getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
                 );
                 ChargeCalculator();
-                System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
+                System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",(takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
             }
 
             if (isWieldShield && isWoreAnything) {
@@ -105,7 +105,7 @@ public abstract class Characters {
                             getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0)))
                     );
                     ChargeCalculator();
-                    System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",getHealthPoint()- (takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
+                    System.out.printf("%s%s%s%.2f%s%n","",getName()," get ",(takenDamage - (takenDamage*(armor.getBlockPercent()/100.0))), " damage!");
                 }else System.out.println("Blocked!");
 
             }
@@ -140,6 +140,10 @@ public abstract class Characters {
         }
     }
 
+    public void MaxHealthCalculator(){
+        setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
+    }
+
     public void ChargeCalculator(){
         int charge = getCharge() + 20;
         if (charge <= 100) {
@@ -148,9 +152,7 @@ public abstract class Characters {
     }
 
     public void CheckCharge(){
-        if (getCharge() == 100) {
-            setUltiReady(true);
-        }
+        setUltiReady(getCharge() == 100);
     }
 
     public String Ready(){
