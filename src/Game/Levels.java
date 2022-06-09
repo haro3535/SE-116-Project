@@ -133,6 +133,21 @@ public class Levels {
                 StayOutManager(getCharacters());
                 StunManager(getEnemies());
 
+                if (getCharacters().size() == 1) {
+                    if (getCharacters().get(0).isUnTouchable()) {
+                        continue;
+                    }
+                }
+
+                if (getCharacters().size() == 0) {
+                    System.out.println("All Allies Were Dead!");
+                    System.out.println("Game Over!");
+                    System.out.println("Exited from the Game!!");
+                    setFinished(true);
+                    System.out.println("Your score is " + Score);
+                    SaveScore();
+                    return;
+                }
                 System.out.print("Enter: ");
                 String input = scanner.nextLine().toLowerCase();
                 String[] splitInput1 = input.split(" ");  // For split input
@@ -371,10 +386,16 @@ public class Levels {
                             loop = false;
                         } else if (getFighter().getHealthPoint() < 0.0 && getHealer().getHealthPoint() > 0.0 && !getHealer().isUnTouchable()) {
                             ItemActionManagement.Attack(enemies1.get(enemyNumber),getHealer());
+                            isInStun = false;
                             loop = false;
-                        } else if (getFighter().getHealthPoint() > 0.0 && getHealer().getHealthPoint() < 0.0) {
-                            System.out.println("All Characters Were Dead!");
-
+                        } else if (getFighter().getHealthPoint() > 0.0 && getHealer().getHealthPoint() < 0.0 && !getFighter().isUnTouchable()) {
+                            ItemActionManagement.Attack(enemies1.get(enemyNumber),getFighter());
+                            isInStun = false;
+                            loop = false;
+                        }else {
+                            System.out.println("Enemy couldn't attack to any character! Turn passed!");
+                            isInStun = false;
+                            loop = false;
                         }
                     }
                 }
@@ -453,7 +474,7 @@ public class Levels {
                 }
             }
             if (getTank() != null) {
-                if (getTank().getHealthPoint()+ (getTank().getHealthPoint()/2) <= getTank().getMaxHealthPoint() ) {
+                if (getTank().getHealthPoint() + (getTank().getHealthPoint()/2) <= getTank().getMaxHealthPoint() ) {
                     getTank().setHealthPoint(getTank().getHealthPoint() + (getTank().getHealthPoint()/2));
                 }else {
                     double restHealth = getTank().getMaxHealthPoint() - getTank().getHealthPoint();

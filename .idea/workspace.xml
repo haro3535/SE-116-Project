@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="changes for wands">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Crystal_Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Crystal_Wand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Holy_Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Holy_Wand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Splinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Splinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654784892568</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="changes for wands">
+      <created>1654792790538</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1654792790538</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,7 +239,8 @@
     <MESSAGE value="All weapons and clothes updated and bugs fixed&#10;Other classes bugs fixed.&#10;Characters have change." />
     <MESSAGE value="Unversioned Files" />
     <MESSAGE value="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java" />
+    <MESSAGE value="changes for wands" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for wands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,6 +254,11 @@
           <url>file://$PROJECT_DIR$/src/Characters/Tank.java</url>
           <line>93</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
+          <line>458</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

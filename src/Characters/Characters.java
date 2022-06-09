@@ -141,7 +141,7 @@ public abstract class Characters {
     }
 
     public void MaxHealthCalculator(){
-        setHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
+        setMaxHealthPoint(Math.round(0.7*getVitality() + 0.2*getStrength() + 0.1*getIntelligence()));
     }
 
     public void ChargeCalculator(){
