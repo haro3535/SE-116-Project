@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Unversioned Files">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Characters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Healer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Healer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/ItemManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Swords/Infamy.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Crystal_Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Crystal_Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Holy_Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Holy_Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Wands/Prophecy.java" afterDir="false" />
@@ -196,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654721789992</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java">
+      <created>1654784892568</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1654784892568</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,7 +233,8 @@
     <MESSAGE value="bug fixed at Levels.DroppedItemCreator method." />
     <MESSAGE value="All weapons and clothes updated and bugs fixed&#10;Other classes bugs fixed.&#10;Characters have change." />
     <MESSAGE value="Unversioned Files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unversioned Files" />
+    <MESSAGE value="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="MaxHealthCalculator added. All wands special action's updated. Enemy constructor updated. Pick Wear Wield Examine methods changed. Major changes in Levels.java. Minor changes in Main.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -251,16 +248,6 @@
           <url>file://$PROJECT_DIR$/src/Characters/Tank.java</url>
           <line>93</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>298</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>302</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -37,10 +37,10 @@ public class Crystal_Wand extends Wand {
         try {
             setHealingRate(random.nextDouble(9,14)/10.0);
             if (whoWillGetHealing.getMaxHealthPoint() < whoWillGetHealing.getHealthPoint()+((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())) {
-                System.out.println("" + whoIsHealing.getName() + " healed +" + (whoWillGetHealing.getMaxHealthPoint()-whoWillGetHealing.getHealthPoint()) + " hp" + whoWillGetHealing.getName());
+                System.out.printf("%s%s%s%.2f%s%s%n","",whoIsHealing.getName()," healed +",(whoWillGetHealing.getMaxHealthPoint()-whoWillGetHealing.getHealthPoint()),"hp ",whoWillGetHealing.getName());
                 whoWillGetHealing.setHealthPoint(whoWillGetHealing.getMaxHealthPoint());
             }else {
-                System.out.println("" + whoIsHealing.getName() + " healed +" + ((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate()) + " hp" + whoWillGetHealing.getName());
+                System.out.printf("%s%s%s%.2f%s%s%n","",whoIsHealing.getName()," healed +",((whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate())," hp",whoWillGetHealing.getName());
                 whoWillGetHealing.setHealthPoint(whoWillGetHealing.getHealthPoint()+(whoWillGetHealing.getHealthPoint()/2.0)*getHealingRate());
             }
             whoIsHealing.setCharge(0);
