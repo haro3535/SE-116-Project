@@ -631,7 +631,7 @@ public class Levels {
         try {
             for (Enemy obName:
                     enemies) {
-                if (obName.getName().toLowerCase().equals(who)) {
+                if (obName.getName().toLowerCase().contains(who)) {
                     return obName;
                 }
             }
