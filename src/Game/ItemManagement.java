@@ -2,10 +2,7 @@ package Game;
 
 import Inventory.Armors.*;
 import Inventory.Items;
-import Inventory.Shields.Aegis;
-import Inventory.Shields.Great_Shield;
-import Inventory.Shields.Nethersbane;
-import Inventory.Shields.Vigilante;
+import Inventory.Shields.*;
 import Inventory.Swords.*;
 import Inventory.Wands.Crystal_Wand;
 import Inventory.Wands.Holy_Wand;
@@ -61,7 +58,7 @@ public class ItemManagement {
         ordinary.add(new Splinter(false));
         ordinary.add(new Broken_Armor(false));
         ordinary.add(new Old_Armor(false));
-        ordinary.add(new Broken_Armor(false));
+        ordinary.add(new Broken_Shield(false));
         // For Rare
         rare = new ArrayList<>();
         rare.add(new Skycutter(false));
