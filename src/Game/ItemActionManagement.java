@@ -18,9 +18,9 @@ public class ItemActionManagement {
                         ((Weapons) itm).Attack(whoIsAttacking, whoGetAttacked);
                         return;
                     }
-                    System.out.println("" + whoIsAttacking.getName() + " is not using any weapon!");
                 }
             }
+            System.out.println("" + whoIsAttacking.getName() + " is not using any weapon!");
         }catch (NullPointerException nullPointerException){
             System.out.println("Item array is empty!");
         }
@@ -36,9 +36,9 @@ public class ItemActionManagement {
                         ((Weapons) itm).SpecialAction(characters,enemies,which,characters1);
                         return;
                     }
-                    System.out.println("" + characters.getName() + " is not using any weapon!");
                 }
             }
+            System.out.println("" + characters.getName() + " is not using any weapon!");
         }catch (NullPointerException nullPointerException){
             System.out.println("Item array is empty!");
         }

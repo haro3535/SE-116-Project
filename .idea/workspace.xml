@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Last_Version:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="fixed bug on ItemManagement.java">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="fixed bug on Levels.java">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Last_Version_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +36,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager" selected="JAR Application.Last_Version.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game.Main" />
       <module name="Last_Version" />
@@ -61,8 +71,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Last_Version.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Last_Version_jar/Last_Version.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.Last_Version.jar" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.deneme" />
       </list>
@@ -224,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654858348146</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed bug on Levels.java">
+      <created>1654864683516</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654864683516</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -270,7 +292,8 @@
     <MESSAGE value="Characters.java and Levels.java updated" />
     <MESSAGE value="update" />
     <MESSAGE value="fixed bug on ItemManagement.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug on ItemManagement.java" />
+    <MESSAGE value="fixed bug on Levels.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug on Levels.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

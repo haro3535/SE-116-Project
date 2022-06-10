@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Last_Version:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Last_Version_jar</output-path>
+    <root id="archive" name="Last_Version.jar">
+      <element id="module-output" name="Last_Version" />
+    </root>
+  </artifact>
+</component>
