@@ -214,6 +214,18 @@ public class Levels {
                             break;
                         case 2:
                             switch (splitInput[1]){
+                                case "all":
+                                    try {
+                                        if (splitInput[0].equals("examine")) {
+                                            for (Items dropped:
+                                                    getDroppedItemArrayList()) {
+                                                dropped.printInfo();
+                                            }
+                                        }
+                                    }catch (NullPointerException nullPointerException){
+                                        System.out.println("Dropped Item List Is Null!");
+                                    }
+                                    break;
                                 case "info":
                                     if (splitInput[0].contains("enemy")) {
                                         getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[0])).printCharacterInfo();
@@ -259,7 +271,7 @@ public class Levels {
                                         if (getEnemies().size() > 0) {
                                             Characters characters1 = getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0]));
                                             ItemActionManagement.Attack(characters1,getEnemies().get(FindEnemyIndex(getEnemies(),splitInput[2])));
-                                            DeadEnemy(getEnemies(),splitInput[2]);
+                                            DeadEnemy(getEnemies());
                                             EnemyAttack(getEnemies());
                                             DeadAllies(getCharacters());
                                             isAllEnemyWereDead(getEnemies());
@@ -286,7 +298,7 @@ public class Levels {
                                             if (usingWeapon != null && usingWeapon.isShield() && getEnemies() != null && getEnemies().size() > 0) {
                                                 ItemActionManagement.SpecialAction(character,getEnemies(),splitInput[2],null);
                                                 ItemActionManagement.Attack(character,enemy);
-                                                DeadEnemy(getEnemies(),splitInput[2]);
+                                                DeadEnemy(getEnemies());
                                                 isAllEnemyWereDead(getEnemies());
                                                 character.setCharge(0);
                                             }
@@ -359,7 +371,7 @@ public class Levels {
 
     SecureRandom random1 = new SecureRandom();
     public void EnemyAttack(ArrayList<Enemy> enemies1){
-               // TODO: Çözmen gerek sorunlar var burda!!
+
         try {
 
             if (enemies1.size() == 0) {
@@ -409,17 +421,17 @@ public class Levels {
         }
     }
 
-    public void DeadEnemy(ArrayList<Enemy> enemies, String who){
+    public void DeadEnemy(ArrayList<Enemy> enemies){
         int to = -1;
         try {
             for (Enemy enm:
                     enemies) {
-                if (enm.getName().toLowerCase().contains(who)) {
+                if (enm.getHealthPoint() <= 0.0) {
                     to = enemies.indexOf(enm);
+                    System.out.println("" + enm.getName() + " were dead!");
                 }
             }
-            if (enemies.get(to).getHealthPoint() <= 0.0) {
-                System.out.println("" + enemies.get(to).getName() + " were dead!");
+            if (to != -1) {
                 enemies.remove(to);
                 ScoreCalculator(1);
             }
