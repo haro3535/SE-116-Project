@@ -4,7 +4,6 @@ import Game.ItemManagement;
 import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
-import Inventory.Wands.Prophecy;
 import Inventory.Wands.Splinter;
 import Inventory.Weapons;
 

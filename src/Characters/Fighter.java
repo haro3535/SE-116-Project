@@ -6,7 +6,6 @@ import Game.Levels;
 import Inventory.Clothes;
 import Inventory.Items;
 import Inventory.Swords.Cometfell;
-import Inventory.Swords.Skycutter;
 import Inventory.Weapons;
 
 import java.security.SecureRandom;
