@@ -2,6 +2,7 @@ package Game;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -100,8 +101,12 @@ public class Main {
                         array[k+1] = array[k];
                         array[k] = temp;
                     }
+                    if (Objects.equals(array[k], array[k + 1]) && array[k] != -1 && array[k+1] != -1) {
+                        array[k+1] = -1;
+                    }
                 }
             }
+
 
             for (int j = 0; j < array.length; j++) {
 

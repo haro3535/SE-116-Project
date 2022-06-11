@@ -8,8 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Bugs fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +266,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654967632826</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Bugs fixed">
+      <created>1654974703388</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1654974703388</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Bugs fixed">
+      <created>1654975003764</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1654975003764</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
