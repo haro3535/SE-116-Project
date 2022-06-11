@@ -38,7 +38,7 @@ public class Levels {
         setEnemies(new ArrayList<>());
         setDroppedItemArrayList(new ArrayList<>());
         levelNumber = 1;
-
+        Score = 0;
             setCharacters(new ArrayList<>());
 
             Tank tank = new Tank();
