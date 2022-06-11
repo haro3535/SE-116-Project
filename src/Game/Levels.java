@@ -34,12 +34,9 @@ public class Levels {
     private Fighter fighter;
     private Healer healer;
 
-
     public Levels(){
         setEnemies(new ArrayList<>());
         setDroppedItemArrayList(new ArrayList<>());
-
-
         if (levelNumber == 1) {
             setCharacters(new ArrayList<>());
 

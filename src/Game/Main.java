@@ -23,6 +23,7 @@ public class Main {
                     case "1" -> {
                         RegisterPlayer();
                         if (loop) {
+                            Levels.setFinished(false);
                             Levels levels = new Levels();
                             while (!Levels.isFinished()) {
                                 // Game Loop
