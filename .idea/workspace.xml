@@ -6,11 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Minor changes Fighter.java and Healer.java">
+    <list default="true" id="9e70d6b4-1f8e-4eb8-8729-63650cfc247c" name="Changes" comment="Bugs fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654889389510</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Bugs fixed">
+      <created>1654967632826</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654967632826</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,16 +316,12 @@
     <MESSAGE value="fixed bug on Levels.java" />
     <MESSAGE value="Bug fixed and jar file created." />
     <MESSAGE value="Minor changes Fighter.java and Healer.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes Fighter.java and Healer.java" />
+    <MESSAGE value="Bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugs fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Characters/Tank.java</url>
           <line>93</line>
@@ -327,18 +329,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>485</line>
+          <line>521</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game/Levels.java</url>
-          <line>269</line>
+          <line>273</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game/Main.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

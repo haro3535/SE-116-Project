@@ -37,7 +37,8 @@ public class Levels {
     public Levels(){
         setEnemies(new ArrayList<>());
         setDroppedItemArrayList(new ArrayList<>());
-        if (levelNumber == 1) {
+        levelNumber = 1;
+
             setCharacters(new ArrayList<>());
 
             Tank tank = new Tank();
@@ -52,7 +53,6 @@ public class Levels {
             setHealer(healer);
             getCharacters().add(healer);
 
-        }
     }
 
     public void Turn(Scanner scanner){
@@ -231,7 +231,11 @@ public class Levels {
                                     }
                                     break;
                                 case "inventory":
+                                    try {
                                     getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).ListInventory();
+                                    }catch (IndexOutOfBoundsException indexOutOfBoundsException){
+                                        System.out.println("Character couldn't find!");
+                                    }
                                     break;
                                 case "ulti":
                                     boolean isSword = false;
@@ -309,23 +313,39 @@ public class Levels {
                                     }
                                     break;
                                 case "pick":
-                                    if (enemies.size() == 0) {
-                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
-                                                Pick(getDroppedItemArrayList(), splitInput[2], null);
-                                    } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                    try {
+                                        if (enemies.size() == 0) {
+                                            getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                                    Pick(getDroppedItemArrayList(), splitInput[2], null);
+                                        } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "examine":
-                                    if (enemies.size() == 0) {
-                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],null);
-                                    }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                    try {
+                                        if (enemies.size() == 0) {
+                                            getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],null);
+                                        }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "wear":
-                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
-                                            Wear(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                    try {
+                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                                Wear(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "wield":
-                                    getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
-                                            Wield(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                    try {
+                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                                Wield(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],null);
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 default:
                                     System.out.println("Unaccepted function " + splitInput[1]);
@@ -335,23 +355,39 @@ public class Levels {
                         case 4:
                             switch (splitInput[1]){
                                 case "pick":
-                                    if (enemies.size() == 0) {
-                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
-                                                Pick(getDroppedItemArrayList(), splitInput[2], splitInput[3]);
-                                    } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                    try {
+                                        if (enemies.size() == 0) {
+                                            getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
+                                                    Pick(getDroppedItemArrayList(), splitInput[2], splitInput[3]);
+                                        } else System.out.println("You can't pick items. There is an enemy still alive!");
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "wear":
+                                    try {
                                     getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
                                             Wear(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],splitInput[3]);
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "wield":
+                                    try {
                                     getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).
                                             Wield(getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).getItems(),splitInput[2],splitInput[3]);
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 case "examine":
-                                    if (enemies.size() == 0) {
-                                        getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],splitInput[3]);
-                                    }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                    try {
+                                        if (enemies.size() == 0) {
+                                            getCharacters().get(FindCharacterIndex(getCharacters(),splitInput[0])).Examine(getDroppedItemArrayList(),splitInput[2],splitInput[3]);
+                                        }else System.out.println("You can't examine items. There is an enemy still alive!");
+                                    }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                                        System.out.println("Character or item couldn't find!");
+                                    }
                                     break;
                                 default:
                                     System.out.println("Unaccepted function " + splitInput[1]);
@@ -607,11 +643,12 @@ public class Levels {
         try {
             for (Characters ch:
                     characters) {
-                if (ch.getName().toLowerCase().contains(who)) {
+                if (ch.getName().toLowerCase().equals(who)) {
                     return characters.indexOf(ch);
                 }
             }
-            throw new IndexOutOfBoundsException("Character couldn't find!");
+
+            throw new ArrayIndexOutOfBoundsException("Character couldn't find!");
         }catch (NullPointerException nullPointerException){
             System.out.println("Character array is null!");
             System.out.println("Levels.FindCharacterIndex - 489");
